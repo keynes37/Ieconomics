@@ -1,6 +1,6 @@
 # Ieconomics
 
-Acá las clases de este semestre
+Acá las clases del semestre en curso
 
 Semana 1. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase-intro.html#1)
 
@@ -14,12 +14,12 @@ Semana 5. [Elasticidad](https://keynes37.github.io/Ieconomics/Clases/Clase05.htm
 
 Semana 6. [Estado](https://keynes37.github.io/Ieconomics/Clases/Clase06.html#1)
 
-Semana 7. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase07.html#1)
+Semana 7. [Gasto Público](https://keynes37.github.io/Ieconomics/Clases/Clase07.html#1)
 
-Semana 8. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase08.html#1)
+Semana 8. [Cuentas Nacionales](https://keynes37.github.io/Ieconomics/Clases/Clase08.html#1)
 
-Semana 9. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase09.html#1)
+Semana 9. [Monetario](https://keynes37.github.io/Ieconomics/Clases/Clase09.html#1)
 
-Semana 10. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase10.html#1)
+Semana 10. [Inflación](https://keynes37.github.io/Ieconomics/Clases/Clase10.html#1)
 
-Semana 11. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase11.html#1)
+Semana 11. [Desempleo](https://keynes37.github.io/Ieconomics/Clases/Clase11.html#1)
