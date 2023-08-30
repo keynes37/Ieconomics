@@ -1,0 +1,534 @@
+---
+title: "Introducción a la<br>Economía"
+subtitle: "El Estado"
+session: ""
+author: "Carlos A. Yanes Guerra"
+institute: "Universidad del Norte | Dept. de Economía"
+date: "8 Septiembre, 2022"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/mitem.css
+      - css/edd.css
+      - rladies
+      - rladies-fonts
+    lib_dir: libs
+    seal: false
+    self_contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "macros.js"
+---
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Estado",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
+  meta_social(
+    title = "Métodos en Economía",
+    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
+    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
+    image_alt = "Diapositiva para introducción a la economía",
+    og_type = "website",
+    og_author = "Carlos Yanes",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@keynes37"
+  )
+```
+
+```{r configuracion, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(datos)
+library(fontawesome)
+library(emo)
+library(xaringanExtra)
+library(pacman)
+p_load(broom, latex2exp, ggplot2, ggthemes, ggforce, viridis, dplyr, magrittr, knitr, parallel, flextable)
+library(babynames)
+library(treemapify)
+library(fontawesome) # from github: https://github.com/rstudio/fontawesome
+library(DiagrammeR)
+library(hrbrthemes)
+library(econocharts)
+library(plotly)
+library(kableExtra)
+
+# set default options
+opts_chunk$set(comment = "#>",
+               echo=FALSE,
+               collapse = TRUE,
+               dpi = 300)
+#knit_engines$set("yaml", "markdown")
+#xaringanExtra::use_tile_view()
+#xaringanExtra::use_clipboard()
+#xaringanExtra::use_share_again()
+#xaringanExtra::style_share_again(
+#share_buttons = c("twitter", "linkedin", "pocket")
+#)
+```
+
+class: right, middle, inverse, titular
+background-image: url(images/cdrepu.jpeg)
+background-size: contain
+background-position: -10cm 3% 
+
+<!--<img style="border-radius: 50%;" src="https://raw.githubusercontent.com/spcanelon/xaringan-rladies-xalapa/master/diapositivas/img/rladies-xalapa.jpg"
+width="150px"/>-->
+<img src="images/log1.png" width="125px"/>
+# `r rmarkdown::metadata$title` 
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+[`r fontawesome::fa("link")` Departamento de Economía](https://www.uninorte.edu.co/en/web/economia)
+
+---
+class: middle, inverse
+.left-column[
+
+# 💯
+
+]
+
+.right-column[
+# Preguntas de lo anteriormente ya visto?
+]
+
+---
+class: middle, center
+background-image: url(https://media.giphy.com/media/3o7TKzwNrZaIUuMn16/giphy.gif)
+background-size: cover
+
+---
+# Para hoy... intentamos aprender
+
+--
+
+1. Conocer el sector público
+
+--
+
+1. Hablar del tamaño **optimo** del .red[**Estado**]
+
+--
+
+1. Pensar en como el **gobierno** y la gobernanza afectan a la .red[**economía**]
+
+--
+
+1. Las actividades que realiza el sector **público** en Colombia y algunas diferencias con el sector **privado**.
+
+--
+
+1. Mirar como es el rol del **estado**.
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/1f/Congreso_de_la_Rep%C3%BAblica.JPG)
+background-size: contain
+
+# Hablemos un poco del Sector Público 🇨🇴
+
+---
+# Sector público
+
+--
+
+Aquel sector que emite una .red[política] con el único fin de generar un .blue[**bienestar general**] y lo hace a partir de la elección publica.
+
+--
+
+<font size="+8">"Estado Juez y Guardián." Smith</font>
+
+--
+
+`r fa("home", fill="red")` Se trata de ligar a la economía a través del _Estado_, entendido como la suma de voluntades individuales que buscan .blue[maximizar] el uso del presupuesto público.
+
+--
+
+`r fa("home", fill="red")` Existe un contrato social que nos dice que los gobernantes deben ayudar a proveer *salud*, *educación*, y otros servicios *sociales*.
+
+--
+
+`r fa("hospital-alt", fill="red")` Colombia es una economía mixta. Posee distintos sectores que de alguna manera a pesar de su naturaleza .blue[privada] o .red[pública] participan dentro de la economía.
+
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e8/San_miguel_arc%C3%A1ngel.jpg)
+background-size: contain
+
+# Por qué es tan importante el Estado?
+
+---
+# Por qué es tan importante el Estado?
+
+--
+
++ Nacemos en **hospitales** subvencionados por el estado. 
+
+--
+
++ Se hacen **registros civiles** (brindan una serie de privilegios y obligaciones) como ciudadanos.
+
+--
+
++ Muchos de nosotros **estudiamos** en universidades y colegios públicos.
+
+--
+
++ Pagamos **impuestos** 
+
+--
+
++ Consumimos **bienes** que son del .red[**estado**] (Parques, vías nacionales, etc)
+
+--
+
++ Se hace y nace la **estructura** jurídica
+
+--
+
++ Genera **empleos** (directa como indirectamente)
+
+---
+# Por qué es tan importante el Estado?
+
+--
+
+```{r echo=FALSE, fig.height=3, fig.width=6}
+grupo<-c("Actividades Profesionales", "Administración pública","Entretenimiento", "Impuestos", "Agrícola", "Minero", "Industria", "Servicios Públicos", "Construcción", "Comercio, hoteles y restaurantes", "Tics", "Financiero", "Inmobiliarias")
+valor<-c(7.2,16.1,3.2,10,1.1,0.2,16.3,6.5,4.5,20,2.9,4.5,7.3)
+df<- data.frame(grupo, valor)
+
+#Arbol
+ggplot(df, aes(area=valor, fill=valor, label=grupo))+
+  geom_treemap() + 
+  geom_treemap_text(colour="white",
+                    place= "centre",
+                    size=15)
+```
+
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/Plaza_de_Bolivar_3.jpg)
+background-size: contain
+
+# Estado
+
+---
+# Estado
+
+--
+
+`r fa("hat-cowboy", fill="blue")` las elecciones **económicas** se dividen en dos partes: .blue[**Privada**] y .blue[**Pública**].
+
+--
+
+`r fa("hat-cowboy", fill="red")` Dentro de la .blue[**Pública**] la denominamos como aquella que tiene muchas consecuencias para la sociedad. Las decisiones de los líderes políticos como regulación en los precios, impuestos, comercio internacional y gasto público, son ejemplos de elecciones públicas.
+
+--
+
+$$Variables=\begin{cases}
+ V_{i}&  = \text{Votantes}  \\ 
+ E_{i}&  = \text{Empresas}  \\ 
+ P_{i}&  = \text{Políticos}  \\ 
+ B_{i}&  = \text{Burocratas}  \\ 
+ \end{cases}$$
+
+---
+# Estado
+
+--
+
+<img src="images/burocir.png" width="480" />
+
+
+---
+# Estado
+
+--
+
+
+<img src="images/Estestado.png" width="1080" />
+
+---
+# Estado
+
+--
+
+<img src="images/cubp.png" width="580" />
+
+
+
+---
+# Estado
+
+--
+
+#### Funciones
+
+--
+
+<font size="+8">Ahorrar.. administrar...controlar</font>
+
+--
+
+`r fa("balance-scale-left")` Facilitador del desarrollo de inversiones.
+
+--
+
+`r fa("balance-scale-left")` Generar mayor competencia.
+
+--
+
+`r fa("balance-scale-left")` Control público
+
+---
+# Estado
+
+--
+
+<div align="center">
+<font size="+8">350,4 Billones PGN</font>
+</div align="center">
+
+--
+
+..."Repartidos por sectores, los renglones con mayor apropiación para el PGN 2022 son: .red[educación], con $49,5 billones; defensa y policía, $42,6 billones; .red[salud y protección social], $41,9 billones; trabajo, $34,7 billones; Hacienda, $24,3 billones; e inclusión social y reconciliación, $23,2 billones." ... Fuente: DNP.
+
+---
+# Estado
+
+--
+
+<img src="images/dian.png" width="580" />
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Congreso_Colombia.png)
+background-size: contain
+
+# Entender nuestra debilidad institucional
+
+---
+# Nuestra debilidad
+
+--
+
+<img src="images/cliente.png" width="1080" />
+
+---
+class: inverse
+
+# Si usted pregunta a las personas...
+
+--
+
+Oye.. Tu vendiste tu voto?
+
+--
+
+Tu evades impuestos?
+
+--
+
+🤬
+
+--
+
+<font size="+5"> No van a decir nunca la verdad!!</font>
+
+---
+class: inverse, middle
+
+# Concepto Clave 
+
+--
+
+## Deseabilidad Social
+
+--
+
+![](https://media.giphy.com/media/xT9DPxTnuhLPORFpvi/giphy.gif)
+
+
+---
+# Deseabilidad social
+
+--
+
+<font size="+3"> Que tan avergonzado(a) me siento por decir la .blue[verdad] ya que entiendo que no es lo deseable socialmente<font size="+3">
+
+--
+
+`r fa("virus", fill="red")` Y entonces que hacer?
+
+--
+
+`r fa("info-circle")` Hagale la pregunta de esta manera a una persona:  ¿cuantas de estas cosas (no diga cuales)  tiene en cuenta para elegir o votar por alguien?
+
+--
+
++ Hablando con los amigos
++ Información que escucho del candidato
++ Venta del voto
++ Partido del Candidato
++ Programa de gobierno
+
+---
+# Deseabilidad social
+
+<font size="+3"> Que tan avergonzado(a) me siento por decir la .blue[verdad] ya que entiendo que no es lo deseable socialmente<font size="+3">
+
+
+
+`r fa("virus", fill="red")` Y entonces que hacer?
+
+
+
+`r fa("info-circle")` Hagale la pregunta de esta manera a una persona:  ¿cuantas de estas cosas (no diga cuales)  tiene en cuenta para elegir o votar por alguien?
+
+--
+
++ Hablando con los amigos
++ Información que escucho del candidato
++ Partido del Candidato
++ Programa de gobierno
+
+---
+# Deseabilidad social
+
+--
+
+## Respuestas
+
+--
+
+.pull-left[
+<font size="+2">La media del primer grupo respondió 3.5<font size="+2">
+
+<font size="+2">La media del segundo grupo respondió .red[**3**]<font size="+2">
+
+En total, el 50% de los encuestados vendió su voto.]
+
+--
+
+.pull-right[
+<font size="+5"> CLIENTELISMO!! </font size="+5">
+![](https://media.giphy.com/media/xT5LMwkgOp36VdWNCE/giphy.gif)]
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Congreso_Colombia.png)
+background-size: contain
+
+# Lo díficil
+
+---
+# Lo díficil de construir estado
+
+--
+
+<font size="+4"> Ciudadanos con regalos, empresas y sectores con gabelas, contratistas amañados
+... El estado es regalón!! </font size="+5">
+
+--
+
+`r fa("virus", fill="red")` Como mejorar eso?
+
+--
+
++ Justicia!!
+
+--
+
++ Expansión del estado
+
+--
+
++ Empoderamiento de los **movimientos sociales**
+
+---
+class: center, middle
+# Tamaño óptimo del estado... ⚠️ 
+
+----
+
+---
+# Tamaño óptimo del estado
+
+--
+
+<font size="+3"> Las distintas administraciones de un país (central, regional y local) cobran .blue[impuestos] a ciudadanos y empresarios. El objeto es corregir .red[fallos del mercado] y entonces redistribuir y financiar actividades</font>
+
+--
+
+### Superavit Presupuestario
+
+--
+
+Los ingresos son mayores a los .red[**gastos**]
+
+--
+
+### Deficit Presupuestario
+
+--
+
+Los ingresos son menores a los .red[**gastos**]
+
+---
+# Tamaño óptimo del estado
+
+--
+
+Visitar a la pagina <https://www.ofiscal.org/>
+
+---
+# Bibliografía
+
+`r fa('book')` Apuntes de Leopoldo Fergusson (2016). Consejo de competitividad.
+
+`r fa('book')` Cabasés, J. M., & Oliva, J. (2011). El gobierno de la sanidad frente a la crisis económica. Notas sobre economía de la salud y sostenibilidad del sistema sanitario. Cuadernos de información económica, 225, 57-62.
+
+---
+name: adios
+class: middle, inverse
+
+.pull-left[
+# **¡Gracias!**
+<br/>
+## El Estado
+
+### Seguimos aprendiendo
+]
+
+.pull-right[
+.right[
+<img style="border-radius: 50%;"
+src="https://avatars.githubusercontent.com/u/39503983?v=4"
+width="150px" />
+
+[`r fontawesome::fa("link")` Syllabus/ Curso](https://pomelo.uninorte.edu.co/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=202210&subj_code_in=ECO&crse_numb_in=0010)<br/>
+[`r fontawesome::fa("twitter")` @keynes37](https://twitter.com/keynes37)<br/>
+[`r fontawesome::fa("paper-plane")` cayanes@uninorte.edu.co](mailto:cayanes@uninorte.edu.co)
+]
+]
+
+???
+¡Gracias por tu atención! 
+En este momento me encantaría tomar preguntas y si me quieren contactar no olviden enviar un email.
+
+
+

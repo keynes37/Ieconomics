@@ -1,0 +1,21 @@
+.two-colors {
+  background: linear-gradient(to bottom, #88398a 80%, #0c090d 20%);
+}
+
+.classificator {
+  background: url("planegh.jpg") no-repeat center center fixed;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.mi-cuadro {
+  background-color: #001f3f;
+  color: white;
+  padding: 20px;
+  font-size: 50px;
+  text-align: center;
+  position: absolute;
+  bottom: 1cm;
+  left: 0;
+  right: 0;
+}

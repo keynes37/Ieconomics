@@ -1,0 +1,549 @@
+---
+title: "Introducción a la<br>Economía"
+subtitle: "Politica <br> Fiscal"
+session: "09"
+author: "Carlos A. Yanes Guerra"
+institute: "Universidad del Norte | Dept. de Economía"
+date: "23 Marzo, 2023"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/mitem.css
+      - css/edd.css
+      - rladies
+      - rladies-fonts
+    lib_dir: libs
+    seal: false
+    self_contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "macros.js"
+---
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Fiscal",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
+  meta_social(
+    title = "Métodos en Economía a la politica",
+    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
+    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
+    image_alt = "Diapositiva para introducción a la economía",
+    og_type = "website",
+    og_author = "Carlos Yanes",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@keynes37"
+  )
+```
+
+```{r configuracion, include = FALSE}
+library(pacman)
+p_load(broom, latex2exp, ggplot2, ggthemes, ggforce, viridis, dplyr, magrittr, knitr, parallel, flextable, xaringanExtra, knitr, tidyverse, emo, fontawesome, datos, babynames, treemapify, shiny, kableExtra, plotly, econocharts, hrbrthemes, DiagrammeR)
+
+# set default options
+opts_chunk$set(comment = "#>",
+               echo=FALSE,
+               collapse = TRUE,
+               dpi = 300)
+#knit_engines$set("yaml", "markdown")
+#xaringanExtra::use_tile_view()
+#xaringanExtra::use_clipboard()
+#xaringanExtra::use_share_again()
+#xaringanExtra::style_share_again(
+#share_buttons = c("twitter", "linkedin", "pocket")
+#)
+```
+
+class: right, middle, inverse, titular
+background-image: url(images/calcpoli.jpg)
+background-size: contain
+background-position: -8cm 20% 
+
+<!--<img style="border-radius: 50%;" src="https://raw.githubusercontent.com/spcanelon/xaringan-rladies-xalapa/master/diapositivas/img/rladies-xalapa.jpg"
+width="150px"/>-->
+<img src="images/log1.png" width="125px"/>
+# `r rmarkdown::metadata$title` 
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+[`r fontawesome::fa("link")` Departamento de Economía](https://www.uninorte.edu.co/en/web/economia)
+
+---
+class: middle, inverse
+.left-column[
+
+# 💂 
+
+]
+
+.right-column[
+# Preguntas de las sesiones anteriores?
+]
+
+---
+class: center, middle
+# El gasto público y la politica fiscal
+
+---
+# Para que el gasto público?
+
+--
+
++ El **Estado** como principal papel es el de facilitar las .hi-pink[condiciones] de intercambio. Asegurar los derechos de propiedad y hacer cumplir contratos.
+
+--
+
++ Ademas, también debe estar en condiciones de **corregir** las .ul[fallas] del .ul[mercado].
+
+--
+
+### Externalidades
+
+--
+
+> Una de las fallas del **mercado** son las conocidas como .black[externalidades].
+
+--
+
+Los **bienes públicos** son ejemplo de ellas. Por ende el .b[estado] debe pensar optimamente en como realizar una provisión segura de ellas.
+
+--
+
+Proveer de **bienes públicos** y de que el **Estado** lo haga bien, tiene que ver con recaudar .hi-pink[impuestos] o emitir .hi-pink[deuda] para financiar el .ul[gasto] y desde luego las deudas hay que pagarlas, lo que se convierte en mas impuestos al futuro.
+
+---
+class: left, middle, inverse, titular
+background-image: url(images/congressdf.png)
+background-size: contain
+background-position: 10cm 60% 
+
+## Gobernabilidad
+
+#### Ejercicio de autoridad 
+#### a traves de instituciones
+#### para el bien común.
+
+---
+# Gasto Público
+
+--
+
+<img src="images/Ferg.png" width="630" />
+
+---
+# Gasto Público
+
+--
+
+```{R, graph01, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
+# Datos
+pop_df = 
+  data.frame(
+  lang = c("Colombia", "Alemania", "España", "EEUU", "Brasil"),
+  n_rate = c(30.2, 27.9, 19.7, 22.7, 36.3),
+  free = c(F, T, T, T, F)
+  )
+## Graficando
+pop_df %>% 
+  mutate(lang = lang %>% factor(ordered = T)) %>%
+  ggplot(aes(x = lang, y = n_rate, fill = free)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  aes(x = reorder(lang, -n_rate), fill = reorder(free, -free)) +
+  xlab("Países") +
+  scale_y_continuous(label = scales::comma) +
+  ylab("Porcentaje (%) del PIB") +
+  labs(
+    title = "Gasto Público",
+    subtitle = "Banco Mundial, 2019/20"
+    ) +
+  scale_fill_manual(
+    "Región Norte",
+    labels = c("Si", "No"),
+    values = c("#f92672", "darkslategray")
+    ) +
+  ggthemes::theme_pander(base_size = 17) +
+  # theme_ipsum() +
+  theme(legend.position = "bottom")
+```
+
+---
+# Gasto Público
+
+--
+
+```{R, graph02, fig.height=5, fig.width=7, message=FALSE, warning=FALSE, dev="svg", echo=F}
+# Datos
+data <- data.frame(
+  year = c(2010:2021),
+  value = c(30.35, 30.23, 29.09, 30, 31.26, 31.28, 29.9, 29.32, 34.66, 32.88, 33.56, 34.51)
+)
+
+# plot
+p <- ggplot(data, aes(x=year, y=value)) +
+  geom_line( color="darkslategray") + 
+  geom_hline(yintercept = 0) +
+  labs(
+    title = "Evolución del Gasto Público Colombiano",
+    subtitle = "Banco Mundial, 2010-2021"
+    ) +
+  xlab("Años") +
+  ylab("Gasto Público como % PIB") +
+  ggthemes::theme_pander(base_size = 17)
+  #theme_ipsum() +
+  #theme(axis.text.x=element_text(angle=60, hjust=1)) 
+p
+
+```
+---
+class: inverse
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
+background-size: contain
+
+# Politica fiscal
+
+.left[<font size="+5">.hi-orange[EXPANSIVA]</font> <br>
+Gasto Publico es mayor <br>
+Reducción de los impuestos <br>
+Menos regulación]
+
+.right[<font size="+5">.hi-orange[CONTRACTIVA]</font> <br>
+ Gasto Publico disminuye <br>
+ Aumento de los impuestos <br>
+ Mas regulación]
+
+---
+# Gasto Público
+
+--
+
+.pull-left[
+<font size="+5"> En que se gasta?</font> <br>
+Necesidades Principales
+]
+
+--
+
+.pull-right[
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/MinEducaci%C3%B3n_%28Colombia%29_logo.png" width="15%" style="float:left"/>&nbsp; Educación .hi-pink[14%] <br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/MinAmbiente_%28Colombia%29_logo.png" width="15%" style="float:left"/>&nbsp; Vivienda .hi-pink[2%] <br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/MinHacienda_%28Colombia%29_logo.png" width="15%" style="float:left"/>&nbsp; Deuda Pública .hi-pink[20%] <br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/MinSalud_%28Colombia%29_logo.png" width="15%" style="float:left"/>&nbsp; Salud .hi-pink[12%] <br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/MinDefensa_%28Colombia%29_logo.png" width="15%" style="float:left"/>&nbsp; Defensa .hi-pink[8%]
+]
+
+---
+class: inverse, middle, right
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/03/New_York_City_%28New_York%2C_USA%29%2C_Empire_State_Building_--_2012_--_6436.jpg)
+background-size: cover
+
+<font size="+6">.hi-orange[Nuestro Presupuesto]</font> <br>
+<font size="+3">350 Billones de pesos</font> <br>
+<font size="+2">.hi-orange[Aprobado por el congreso para 2023]</font> 
+
+---
+class: middle
+
+# De donde sale todo ese dinero?
+
+----
+
+---
+class: inverse, middle
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e2/Yellow_Color.jpg)
+background-size: contain
+background-position: -8.5cm 50%
+
+.pull-left[
+<font size="+7">$174 Billones de pesos</font> <br>
+<font size="+3"> .hi-orange[Tributos]</font>
+]
+
+.pull-right[
+<font size="+7">$40 Billones de pesos</font> <br>
+<font size="+3"> .hi-orange[Ingresos Propios]</font>
+]
+---
+# Tributos en Colombia
+
+--
+
+.left-column[
+## Los maneja la
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Dian_%28Colombia%29_logo.svg" width="60%" style="float:left"/>&nbsp; 
+]
+
+.right-column[
+```{R, graph03, fig.height=5, fig.width=7, message=FALSE, warning=FALSE, dev="svg", echo=F}
+# Datos
+data <- data.frame(
+  category=c("IVA", "Renta Naturales", "Renta Juridica", "Patrimonio", "SSS", "Otros", "Otros BBSS"),
+  count=c(29, 7, 25, 10, 10, 8, 11)
+)
+
+# Compute percentages
+#data$fraction <- data$count / sum(data$count)
+
+# Compute the cumulative percentages 
+data$ymax <- cumsum(data$count)
+
+# Compute the bottom of each rectangle
+data$ymin <- c(0, head(data$ymax, n=-1))
+
+# Compute label position
+data$labelPosition <- (data$ymax + data$ymin) / 2
+
+
+# Compute a good label
+data$label <- paste0(data$category, "\n Porcentaje: ", data$count)
+
+# Make the plot
+ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+  geom_rect() +
+  geom_label( x=3.5, aes(y=labelPosition, label=label), size=3) +
+  scale_fill_brewer(palette=4) +
+  coord_polar(theta="y") +
+  xlim(c(2, 4)) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+]
+
+---
+# Tributos en Colombia
+
+--
+
++ Los hay de varios tipos, pero sin embargo a nivel general veremos que el **sistema** que mas gusta a los políticos de turno subyace en el que mas recaude.
+
+--
+
+```{r, taxtax, echo=FALSE}
+mi_im <- data.frame(
+  "A" = c(1000, 1500,3000),
+  "B" = c(190, 285, 570),
+  "C" = c("19%","19%", "19%"), 
+  "D" = c(300,375,600),
+  "E" = c("30%","25%","20%"),
+  "K" = c(200,375,900),
+  "G" = c("20%","25%","30%"))
+
+ft <- flextable(mi_im)
+ft<-set_header_labels(ft, A = "Ingresos", B = "Impuesto similar", C="% de impuesto", D="Impuesto regresivo", E="% de impuesto", K="Impuesto progresivo", G="% de impuesto")
+ft <- theme_vanilla(ft)
+ft <- add_footer_lines(ft, "En Millones de Pesos")
+ft <- color(ft, part = "footer", color = "#666666")
+ft <- set_caption(ft, caption = "Sistemas de impuesto")
+ft
+```
+
+---
+class: inverse, middle
+
+# Regresemos a lo de las Externalidades 👨🏽‍🦱👩🏼‍🦰👱🏼‍♂️
+
+---
+# Externalidades
+
+--
+
+Una característica que debemos tener en cuenta es que existe una diferencia entre los **beneficios** y **costos privados**, y los .hi-pink[beneficios] y .hi-slate[costos sociales].
+
+--
+
+En tales casos, el **Estado** puede intervenir para intentar mejorar los resultados del mercado.
+
+--
+
+Por eso debemos saber diferenciar entre las *externalidades*, los bienes ***públicos*** y los bienes *comunales*.
+
+---
+# Externalidades
+
+--
+
+## Pregunta
+
+--
+
+.left-column[
+Por qué se emite aun CO2, si somos conscientes de su daño?
+]
+
+.right-column[
+<img src="images/co2.png" width="580" />
+]
+
+---
+# Externalidades
+
+--
+
+## Pregunta
+
+--
+
+.left-column[
+En las vacunas solo hay un beneficio particular? Por qué muchas veces hay que obligar a las personas a vacunarse?
+]
+
+.right-column[
+<img src="images/vac.png" width="480" />
+]
+
+---
+# Externalidades
+
+--
+
+## Pregunta
+
+--
+
+.left-column[
+Por qué las vacas no son una especie extinta a diferencia de los bufalos?
+]
+
+.right-column[
+![](https://media.giphy.com/media/XncE2zmvthjyg/giphy.gif)
+]
+---
+# Externalidades
+
+--
+
+## Pregunta
+
+--
+
+.left-column[
+Esta dispuesto(a) a pagar por la defensa de tu país?
+]
+
+.right-column[
+![](https://media.giphy.com/media/GgUQIgs6YKqCfFDt34/giphy.gif)
+]
+---
+# Externalidades
+
+--
+
+.center[
+## Qué pasa si no contribuyes?
+]
+
+--
+
+.center[
+<img src="images/bangbang.png" width="280" />
+]
+
+
+---
+# Externalidades
+
+--
+
+> Son **Positivas** si la actividad que se hace tiene un efecto positivo sobre terceros
+
+--
+
+Ademas que del otro lado:
+
+> Son **Negativas** si la actividad que se hace tiene un efecto negativo sobre terceros
+
+---
+# Externalidades
+
+--
+
+### De las positivas
+
+.pull-left[
+![](https://media.giphy.com/media/VZUhn04QSs0AmsHRic/giphy.gif)
+]
+
+.pull-right[
+![](https://media.giphy.com/media/ojmB7lOn3VUU8/giphy.gif)
+]
+
+---
+class: middle
+
+# Como solucionamos? ☝🏻
+
+----
+
+---
+# Soluciones
+
+--
+
+### Desde luego internalizando
+
+--
+
++ Soluciones Privadas
+
+--
+
+### Con impuestos!!
+
+--
+
++ Soluciones Públicas
+
+---
+# Bibliografía
+
+`r fa('book')` Lora, E., & Prada, S. I. (2008). *Técnicas de medición económica*. Metodología y aplicaciones en Colombia, ICESI.
+
+`r fa('book')` Mateer, D., & Coppock, L. (2021). *Principles of Microeconomics.* WW Norton & Company.
+
+`r fa('book')` Acemoglu, D., Laibson, D., & List, J. A. (2017). *Economía*. Antoni Bosch editor.
+
+---
+name: adios
+class: middle, inverse
+
+.pull-left[
+# **¡Gracias!**
+<br/>
+## Gasto Público
+
+### Seguimos aprendiendo
+]
+
+.pull-right[
+.right[
+<img style="border-radius: 50%;"
+src="https://avatars.githubusercontent.com/u/39503983?v=4"
+width="150px" />
+
+[`r fontawesome::fa("link")` Syllabus/ Curso](https://pomelo.uninorte.edu.co/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=202210&subj_code_in=ECO&crse_numb_in=0010)<br/>
+[`r fontawesome::fa("twitter")` @keynes37](https://twitter.com/keynes37)<br/>
+[`r fontawesome::fa("paper-plane")` cayanes@uninorte.edu.co](mailto:cayanes@uninorte.edu.co)
+]
+]
+
+???
+¡Gracias por tu atención! 
+En este momento me encantaría tomar preguntas y si me quieren contactar no olviden enviar un email.
+
+
+
+
+
