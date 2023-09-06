@@ -4,7 +4,7 @@ subtitle: "El Estado"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "8 Septiembre, 2022"
+date: "7 Septiembre, 2023"
 output:
   xaringan::moon_reader:
     css: 
@@ -300,19 +300,19 @@ $$Variables=\begin{cases}
 --
 
 <div align="center">
-<font size="+8">350,4 Billones PGN</font>
+<font size="+8">405,6 Billones PGN</font>
 </div align="center">
 
 --
 
-..."Repartidos por sectores, los renglones con mayor apropiación para el PGN 2022 son: .red[educación], con $49,5 billones; defensa y policía, $42,6 billones; .red[salud y protección social], $41,9 billones; trabajo, $34,7 billones; Hacienda, $24,3 billones; e inclusión social y reconciliación, $23,2 billones." ... Fuente: DNP.
+..."Repartidos por sectores, los renglones con mayor apropiación para el PGN 2023 son: .red[educación], con $54,8 billones; defensa y policía, $32,1 billones; .red[salud y protección social], $50,3 billones; trabajo, $38 billones; Hacienda, $53,3 billones; Prosperidad social, $17,8 billones." ... Fuente: DNP.
 
 ---
 # Estado
 
 --
 
-<img src="images/dian.png" width="580" />
+<img src="images/Dian2023.png" width="580" />
 
 ---
 class: inverse, middle, center
