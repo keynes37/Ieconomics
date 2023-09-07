@@ -12,7 +12,7 @@ Semana 4. [Agentes Económicos](https://keynes37.github.io/Ieconomics/Clases/Cla
 
 Semana 5. [Elasticidad](https://keynes37.github.io/Ieconomics/Clases/Clase05.html#1)
 
-Semana 6. [Estado](https://keynes37.github.io/Ieconomics/Clases/Clase06.html#1)
+Semana 6. [Estado](https://github.com/keynes37/Ieconomics/blob/main/Clases/Clase06.html#1)
 
 Semana 7. [Gasto Público](https://keynes37.github.io/Ieconomics/Clases/Clase07.html#1)
 
