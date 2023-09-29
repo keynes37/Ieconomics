@@ -4,7 +4,7 @@ subtitle: "Politica <br> Fiscal"
 session: "09"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "23 Marzo, 2023"
+date: "29 de Septiembre, 2023"
 output:
   xaringan::moon_reader:
     css: 
@@ -184,8 +184,8 @@ pop_df %>%
 ```{R, graph02, fig.height=5, fig.width=7, message=FALSE, warning=FALSE, dev="svg", echo=F}
 # Datos
 data <- data.frame(
-  year = c(2010:2021),
-  value = c(30.35, 30.23, 29.09, 30, 31.26, 31.28, 29.9, 29.32, 34.66, 32.88, 33.56, 34.51)
+  year = c(2010:2022),
+  value = c(30.35, 30.23, 29.09, 30, 31.26, 31.28, 29.9, 29.32, 34.66, 32.88, 33.56, 34.51, 42.10)
 )
 
 # plot
@@ -194,7 +194,7 @@ p <- ggplot(data, aes(x=year, y=value)) +
   geom_hline(yintercept = 0) +
   labs(
     title = "Evolución del Gasto Público Colombiano",
-    subtitle = "Banco Mundial, 2010-2021"
+    subtitle = "Banco Mundial, 2010-2022"
     ) +
   xlab("Años") +
   ylab("Gasto Público como % PIB") +
