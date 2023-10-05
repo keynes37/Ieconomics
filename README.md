@@ -1,6 +1,6 @@
 # Ieconomics
 
-Acá las clases del semestre en curso
+Acá las clases del semestre en curso (actual 08)
 
 Semana 1. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase-intro.html#1)
 
