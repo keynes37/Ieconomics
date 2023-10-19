@@ -4,7 +4,7 @@ subtitle: "Inflación"
 session: "10"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "4 de Mayo, 2023"
+date: "19 de Octubre, 2023"
 output:
   xaringan::moon_reader:
     css: 
