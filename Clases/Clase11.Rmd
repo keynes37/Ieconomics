@@ -4,7 +4,7 @@ subtitle: "Desempleo"
 session: "11"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "18 Mayo, 2023"
+date: "26 de octubre, 2023"
 output:
   xaringan::moon_reader:
     css: 
