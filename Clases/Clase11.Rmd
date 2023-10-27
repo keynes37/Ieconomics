@@ -486,7 +486,7 @@ background-size: contain
 
 <font size="+5">$$TBP=\frac{PEA}{PT}\times 100$$</font>
 
-> Esta tasa nos indica la carga que tiene la oferta laboral en el país. Una tasa mayor nos indica 
+> Esta tasa nos indica la carga que tiene la oferta laboral en el país. El grupo de personas que esta dispuesta y disponible a trabajar.
 
 --
 
@@ -521,8 +521,8 @@ background-size: contain
 
 ```{R, graphoui, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
 Car <- c("TGP", "TO", "TD")
-A_2022 <- c(63.5, 55.8, 12.1)
-A_2023 <- c(64.3, 57.9, 10)
+A_2022 <- c(63.5, 56.7, 10.6)
+A_2023 <- c(64.4, 58.5, 9.3)
 data <- data.frame(Car, A_2022, A_2023)
 
 data_long<- data%>%
@@ -535,8 +535,8 @@ ggplot(data_long, aes(x=Car, y=Valor, fill=Periodo))+
     "Periodo",
     labels = c("2022", "2023"),
     values = c("darkslategray","#f92672"))+
-  labs(x = "Indicadores", y = "Porcentaje (%)", title = "Comparación de Indicadores del Mercado Marzo 2022 vs. 2023",
-       subtitle = "DANE Abril 2023") +
+  labs(x = "Indicadores", y = "Porcentaje (%)", title = "Comparación de Indicadores del Mercado Agosto 2022 vs. 2023",
+       subtitle = "DANE Agosto 2023") +
   ggthemes::theme_pander(base_size = 17) +
   theme(legend.position = "right")
 ```
