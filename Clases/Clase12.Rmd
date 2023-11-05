@@ -1,0 +1,604 @@
+---
+title: "Introducción a la<br>Economía"
+subtitle: "Crecimiento económico"
+session: "12"
+author: "Carlos A. Yanes Guerra"
+institute: "Universidad del Norte | Dept. de Economía"
+date: "9 de Noviembre, 2023"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/mitem.css
+      - css/edd.css
+      - rladies
+      - rladies-fonts
+      - css/colortwo.css
+    lib_dir: libs
+    seal: false
+    self_contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "macros.js"
+---
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Crecimiento económico",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
+  meta_social(
+    title = "Inflación-Precios",
+    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
+    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
+    image_alt = "Diapositiva para introducción a la economía",
+    og_type = "website",
+    og_author = "Carlos Yanes",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@keynes37"
+  )
+```
+
+```{r configuracion, include = FALSE}
+library(pacman)
+p_load(broom, latex2exp, ggplot2, ggthemes, ggforce, viridis, dplyr, magrittr, knitr, parallel, flextable, xaringanExtra, knitr, tidyverse, emo, fontawesome, datos, babynames, treemapify, shiny, kableExtra, plotly, econocharts, hrbrthemes, DiagrammeR)
+
+#color
+red <- "#b92e34"
+
+# set default options
+opts_chunk$set(comment = "#>",
+               echo=FALSE,
+               collapse = TRUE,
+               dpi = 300)
+#knit_engines$set("yaml", "markdown")
+#xaringanExtra::use_tile_view()
+#xaringanExtra::use_clipboard()
+#xaringanExtra::use_share_again()
+#xaringanExtra::style_share_again(
+#share_buttons = c("twitter", "linkedin", "pocket")
+#)
+```
+
+class: right, middle, inverse, titular
+background-image: url(images/crececo.jpg)
+background-size: contain
+background-position: -8cm 20% 
+
+<!--<img style="border-radius: 50%;" src="https://raw.githubusercontent.com/spcanelon/xaringan-rladies-xalapa/master/diapositivas/img/rladies-xalapa.jpg"
+width="150px"/>-->
+<img src="images/log1.png" width="125px"/>
+# `r rmarkdown::metadata$title` 
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+[`r fontawesome::fa("link")` Departamento de Economía](https://www.uninorte.edu.co/en/web/economia)
+
+---
+class: middle, inverse
+.left-column[
+
+# 😓 
+
+]
+
+.right-column[
+# Preguntas de las sesiones anteriores?
+]
+
+---
+class: center, middle
+# Crecimiento Económico 📈
+
+----
+
+---
+# Un par de preguntas
+
+--
+
+`r fa("mug-hot", fill="red")` Cuanto poder nos brinda el .hi-slate[crecimiento económico]?
+
+--
+
+`r fa("mug-hot", fill="red")` Cómo crece la economía de un .hi[país]?
+
+--
+
+`r fa("mug-hot", fill="red")` Qué podemos decir sobre la .hi[historia] del crecimiento económico
+
+--
+
+`r fa("mug-hot", fill="red")` Cómo es la relación entre .hi-slate[crecimiento], .b[pobreza] y la .hi-turquoise[desigualdad]?
+
+---
+class: center, middle, inverse
+
+# Ideas generales 🔉
+----
+
+---
+layout: true
+# Ideas generales
+
+---
+
+--
+
+`r fa("bell", fill="red")` El crecimiento económico intenta medir el .hi[aumento] del **PIB** (real) per cápita a lo largo del tiempo.
+
+--
+
+```{R, graph01, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
+# Datos
+pop_df = 
+  data.frame(
+  lang = c("1846", "2000", "2020"),
+  n_jobs = c(391, 2547, 5307),
+  free = c(T, F, F)
+  )
+## Graficando
+pop_df %>% 
+  mutate(lang = lang %>% factor(ordered = T)) %>%
+  ggplot(aes(x = lang, y = n_jobs, fill = free)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  aes(x = reorder(lang, n_jobs), fill = reorder(-free, free)) +
+  xlab("Periodo de Tiempo") +
+  scale_y_continuous(label = scales::comma) +
+  ylab("PIB per cápita en Dolares") +
+  labs(
+    title = "PIB per cápita en Colombia",
+    subtitle = "Estimaciones"
+    ) +
+  scale_fill_manual(
+    "Extrapolado?",
+    labels = c("No", "Si"),
+    values = c("#f92672", "darkslategray")
+    ) +
+  ggthemes::theme_pander(base_size = 17) +
+  # theme_ipsum() +
+  theme(legend.position = "bottom")
+```
+
+---
+
+--
+
+`r fa("bell", fill="red")` El crecimiento económico en Colombia ha venido en .hi[aumento]. No podemos decir que no hemos mejorado en algo
+
+--
+
+<iframe src="https://ourworldindata.org/grapher/gdp-per-capita-worldbank?tab=chart&country=USA~DEU~GBR~FRA~KOR~CHN~COL" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+
+---
+
+--
+
+## Calculos
+
+--
+
+La tasa de .hi[crecimiento] normalmente viene a ser:
+
+--
+
+<font size="+5">$$Crecimiento=\left[\frac{Y_{t}}{Y_{t-1}}-1\right]\times 100$$</font>
+
+--
+
+Donde $Y_{t}$ hace referencia al PIB per capita en el .hi-turquoise[periodo presente] y $Y_{t-1}$ al PIB per cápita del periodo anterior.
+
+--
+
+>En algunas ocasiones puede haber un **crecimiento exponencial**, esto es, el PIB per cápita crece a una tasa constante
+
+---
+
+--
+
+`r fa("info-circle", fill="red")` Suponga lo siguiente: $Y$ en el año 2020 crece en un 8% anual. .hi[cuál será el valor de Y en el año 2035]
+
+--
+
+*Cada año se gana un 8%* de tal manera que el crecimiento total entonces es de $0.08 \times 15= 1.2$
+--
+ es lo mismo que
+--
+$Y_{2025}=Y_{2020}\times (1.2)\dots$ .hi-purple[falso!!!]
+
+--
+
+En realidad es una sucesión... mire a continuación
+
+--
+
+- $Y_{2021}=Y_{2020}\times (1.08)$
+
+--
+
+- $Y_{2022}=Y_{2021}\times (1.08)=Y_{2020}\times (1.08)\times (1.08)= Y_{2020}\times (1.08)^2$
+
+--
+
+- $Y_{2023}=Y_{2022}\times (1.08)=Y_{2020}\times (1.08)^2\times (1.08)= Y_{2020}\times (1.08)^3$
+
+--
+
+- $Y_{2024}=Y_{2023}\times (1.08)=Y_{2020}\times (1.08)^3\times (1.08)= Y_{2020}\times (1.08)^4$
+
+--
+
+$\cdots$ y así hasta llegar a 2025
+
+---
+
+--
+
+`r fa("fighter-jet", fill="blue")`  Con el crecimiento exponencial, el .hi-orange[nuevo crecimiento] parte y tiene como referencia el anterior, de tal manera que estamos frente a algo que es conocido como el .ul[efecto-compuesto]
+
+--
+
+- $Y_{2025}=\color{red}{Y_{2020}\times (1.08)^5}=\color{purple}{Y_{2020}\times 1.46} > Y_{2020} \times 0.50$
+
+
+--
+
+- $Y_{2030}=\color{red}{Y_{2020}\times (1.08)^{10}}=\color{blue}{Y_{2020}\times 2.15} > Y_{2020} \times 1.00$
+
+--
+
+- $Y_{2035}=\color{red}{Y_{2020}\times (1.08)^{15}}=\color{darkblue}{Y_{2020}\times 3.17} > Y_{2020} \times 1.50$
+
+--
+
+De esto surge que para comparar distintos .hi[países] toca resaltar la .ul[escala proporcional].
+
+--
+
+- Un .hi-purple[crecimiento] del 8% por ejemplo, nos llevará un capital de 1000 a 1080 con un cambio de 80.
+
+--
+
+- Un .hi-purple[crecimiento] del 8% por ejemplo, nos llevará un capital de 10000 a 10800 con un cambio de 800.
+
+---
+
+--
+
+```{r, graph02, fig.height=5, fig.width=9, message=FALSE, warning=FALSE, dev = "svg"}
+datos <- data.frame(
+  x = 1:20,
+  y1 = 10000 * exp(0.2 * (1:20)),     # Crecimiento exponencial rápido
+  y2 = 1000 * exp(0.2 * (1:20))       # Crecimiento exponencial lento
+)
+
+ggplot(datos, aes(x = x)) +
+  geom_line(aes(y = y1, color = "exponencial rapido")) +
+  geom_line(aes(y = y2, color = "exponencial lento")) +
+  scale_color_manual(values = c("#2f4f4f", "#f92672")) +
+  scale_y_continuous(labels = scales::number_format(scale = 1, scale_suffix = "")) +
+  annotate("text", x = 20, y = datos$y1[16], label = "Exponencial rapido", hjust = 1, vjust = -1) +
+  annotate("text", x = 20, y = datos$y2[20], label = "Exponencial lento", hjust = 1, vjust = 1) +
+  theme_pander(base_size = 17)
+```
+
+---
+layout:false
+class: middle, center
+
+# Miremos la escala proporcional
+
+---
+layout: true
+# Poder del Crecimiento
+---
+
+--
+
+```{r, graph03, fig.height=5, fig.width=9, message=FALSE, warning=FALSE, dev = "svg"}
+# Creación de datos
+n <- 20  # Número de períodos
+tiempo <- 1:n
+crecimiento <- 1.10  # Tasa de crecimiento del 10% para ambas series
+inicio_serie1 <- 10000
+inicio_serie2 <- 1000
+
+# Creación de las dos series con crecimiento del 10%
+serie1 <- inicio_serie1 * crecimiento^tiempo
+serie2 <- inicio_serie2 * crecimiento^tiempo
+
+# Creación del dataframe
+data <- data.frame(tiempo, serie1, serie2)
+
+# Creación del gráfico en ggplot2 con escala logarítmica en el eje y y colores personalizados
+ggplot(data, aes(x = tiempo)) +
+  geom_line(aes(y = serie1), color = "#2f4f4f", linetype = "solid", size = 1) +
+  geom_line(aes(y = serie2), color = "#f92672", linetype = "dashed", size = 1) +
+  labs(
+    x = "Períodos de Tiempo",
+    y = "PIB",
+    title = "Crecimiento del 8%"
+  ) +
+  scale_y_log10(
+    breaks = c(1000, 2000, 4000, 8000, 16000),
+    labels = c("1000", "2000", "4000", "8000", "16000")
+  ) +
+  theme_pander(base_size = 17)
+```
+
+---
+
+--
+
+`r fa("bell", fill="red")` Frente al .hi[crecimiento exponencial] nos damos cuenta que cuando ocurren .hi-slate[pequeños] cambios en las .hi[tasas de crecimiento] se presentan .hi-slate[enormes] diferencias en el nivel del PIB per cápita.
+
+--
+
+`r fa("palette", fill="red")` Considere un ejemplo donde .turquoise[tres países] empiezan con el mismo nivel de PIB per cápita en el año de 1820.
+
+--
+
+.hi[Cúal seria el PIB en 2020 (200 años) si cada uno de ellos crece a tasas del 0%, 1% y 2% respectivamente?]
+
+--
+
+R./
+
+--
+
+- $Y_{2020}= 1000$ 
+
+--
+
+- $Y_{2020}= 7316$
+
+--
+
+- $Y_{2020}= 52485$
+
+
+--
+
+`r fa("fighter-jet", fill="blue")` La formula:
+
+$$PIB \times (1+\text{Tasa de Crec.})^{\text{Tiempo}}$$
+---
+
+--
+
+```{r tab1, echo=FALSE, warning=FALSE, message=FALSE}
+tablie <- data.frame(
+  `País` = c("Luxemburgo", "Singapur","Nigeria", "Estados Unidos", "Corea del Sur"),
+  `PIB 1960` = c(
+    "17601","4383", "861", "15398", "1656"),
+  `PIB 2020` = c ("75589","55862","522","41365","26609"),
+  `Crecimiento` = c ("2.9%","5.22%","-1.00%","2.00%", "5.71%")
+)
+
+kable(tablie, format = "html", align = "c", caption = "Tabla de PIB y Crecimiento") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  column_spec(2:4, background = c("#FFA500", "#f92672", "#44C1C4"))
+```
+
+--
+
+`r fa("long-arrow-alt-right", fill="red")` Las tasas promedio han estado entre el .hi[rango] de 1%-3%.
+
+--
+
+`r fa("long-arrow-alt-right", fill="red")` La .turquoise[convergencia] tiene que ver como los países pobres tienden a **crecer** o converger mas rápido con los países ricos. Esto desde luego tiene que ver con los procesos productivos.
+
+--
+
+`r fa("long-arrow-alt-right", fill="red")` El .turquoise[crecimiento sostenido] tiene que ver con que algunos países experimentan un crecimiento económico positivo y sostenido durante muchos años.
+
+---
+layout: false
+class: middle, center
+
+# Por qué crece un país 📈
+---
+layout: true
+# Por qué crecemos
+
+---
+
+--
+
+Hay que tener muy presente la función de producción *teórica*:
+
+--
+
+<font size="+5">$$Y=A \times F(K, L)$$</font>
+
+--
+
+`r fa("mug-hot", fill="red")` Aumentando el stock de capital físico, K.
+
+--
+
+`r fa("mug-hot", fill="red")` Aumentando el trabajo eficiente (productividad), L.
+
+--
+
+`r fa("mug-hot", fill="red")` Mejorando la tecnología, A.
+
+---
+
+--
+
+.pull-left[
+![](https://media.giphy.com/media/NyniJ2Nf2ZzlE8GYsl/giphy.gif)
+]
+
+--
+
+.pull-right[
+> Qué determina el ahorro?
+
+R./ .hi[Los hogares]
+]
+
+---
+
+--
+
+`r fa("long-arrow-alt-right", fill="red")` El .hi[consumo] reporta una **satisfacción** inmediata, mientras que el .turquoise[ahorro] permite consumo futuro y desde luego satisfacción futura.
+
+--
+
+`r fa("long-arrow-alt-right", fill="red")` La decisión entre .hi[consumir]/.turquoise[ahorrar] es, desde luego, un problema de *optimización* en el que el .hi[precio] es la .hi[tasa de interés].
+
+--
+
+`r fa("long-arrow-alt-right", fill="red")` La suma de las desiciones individuales determina la tasa de ahorro de una economía:
+
+--
+
+<font size="+5">$$\text{Tasa de Ahorro}=\frac{\text{Ahorro Total}}{PIB}$$</font>
+
+--
+
+La acumulación de capital físico por si sola no puede generar **crecimiento sostenido** ya que siempre la productividad marginal es decreciente.
+
+---
+
+--
+
+```{r, graph04, fig.height=5, fig.width=9, message=FALSE, warning=FALSE, dev = "svg"}
+# Datos
+Decada <- rep(c("1950-59", "1960-69", "1970-79", "1980-89", "1990-99", "2000-07"), times=3)
+Valores <- c(2.37, 2.2, 1.22, 0.45, 0.87, 1.29, 0.89, 0.89, 0.88, 0.86, 0.84, 0.99,
+             0.28, 0.20, 0.01, 0.30, 0.36, 0.19)
+Condicion <- rep(c("Tecnología", "Capital Físico", "Capital Humano"), each=6)
+df <- data.frame(Decada, Valores, Condicion)
+df$Condicion <- factor(df$Condicion, levels = c("Tecnología", "Capital Físico", "Capital Humano"))
+# Gráfico de barras apiladas
+ggplot(df, aes(fill=Condicion, y=Valores, x=Decada)) + 
+  geom_bar(position="stack", stat="identity") + 
+  scale_fill_manual(values = c("Capital Humano" = "#2f4f4f", "Capital Físico" = "#f92672", "Tecnología" = "#44C1C4")) +
+  labs(
+    x = "Décadas",
+    y = "Valor",
+    title = "Distribución por Décadas Insumos en EEUU"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "right")
+```
+
+---
+
+--
+
+.hi-purple[P:] ¿ Por qué somos más prosperos que nuestros tatarabuelos?
+
+--
+
+.hi[R./] En la gran mayoría de décadas, .hi-turquoise[tecnología] es la que mas contribuye al PIB por trabajador por lo menos en un páis como los EEUU.
+
+--
+
+<center>
+<span style="color:blue"> 
+No podemos igual infravalorar el trabajo humano, porque de ser así podríamos exagerar la contribución de la tecnología
+</span>
+</center>
+
+--
+
+La .hi-turquoise[tecnología] no tiene rendimientos decrecientes, regularmente lo que ya sabemos es porque antes se desarrolló con alta intensidad.
+
+--
+
+`r fa("info-circle", fill="red")` La .hi-turquoise[tecnología] no se usa para reemplazarnos, si no mas bien complementarnos y ser aun mas productivos.
+
+---
+layout: false
+class: center, middle
+
+# Historia del crecimiento 🔧
+
+---
+layout: true
+# Historia del crecimiento
+
+---
+
+--
+
+.pull-left[
+La .hi[historia] económica del mundo puede dividirse en tres periodos:
+1. .hi-orange[Pre-modernidad] hasta 1800
+2. .hi-pink[Revolución industrial] De 1800 a 1820
+3. .hi-orange[Post-revolución industrial] hasta 1820 hasta hoy
+]
+.pull-right[
+<img src="https://media.giphy.com/media/xT5LMXA2FClO5yvy80/giphy.gif" class="scaled-image" />
+]
+
+---
+
+--
+
+<iframe src="https://ourworldindata.org/grapher/the-share-of-people-living-in-extreme-poverty-vs-gdp-per-capita?time=earliest" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+
+---
+
+--
+
+.pull-left[
+![](https://media.giphy.com/media/BjlHaRrSdvRV6/giphy.gif)
+]
+
+--
+
+.pull-right[
+`r fa("linux")` El crecimiento no es la .hi[causa] de la pobreza ni de la desigualdad.
+`r fa("linux")` Si ayuda a contener y es un .turquoise[instrumento] para ello
+`r fa("linux")` La brecha de desigualdad debe reducirse y esto implica mucha intervención y aparte voluntad social
+]
+
+---
+layout: false
+# Bibliografía
+
+`r fa('book')` Mateer, D., & Coppock, L. (2021). *Principles of Microeconomics.* WW Norton & Company.
+
+`r fa('book')` Acemoglu, D., Laibson, D., & List, J. A. (2017). *Economía*. Antoni Bosch editor.
+
+
+---
+name: adios
+class: middle, inverse
+
+.pull-left[
+# **¡Gracias!**
+<br/>
+## Crecimiento
+
+### Este es el final del curso
+]
+
+.pull-right[
+.right[
+<img style="border-radius: 50%;"
+src="https://avatars.githubusercontent.com/u/39503983?v=4"
+width="150px" />
+
+[`r fontawesome::fa("link")` Syllabus/ Curso](https://pomelo.uninorte.edu.co/pls/prod/bwckctlg.p_disp_course_detail?cat_term_in=202210&subj_code_in=ECO&crse_numb_in=0010)<br/>
+[`r fontawesome::fa("twitter")` @keynes37](https://twitter.com/keynes37)<br/>
+[`r fontawesome::fa("paper-plane")` cayanes@uninorte.edu.co](mailto:cayanes@uninorte.edu.co)
+]
+]
+
+???
+¡Gracias por tu atención! 
+En este momento me encantaría tomar preguntas y si me quieren contactar no olviden enviar un email.

@@ -47,6 +47,11 @@
 .pink {
   color: #e64173 !important;
 }
+/* Darkblue */
+.dark {  
+  color: #00008B !important;
+}
+
 /* Slate ("darkslategrey") text */
 .slate {
   color: #314f4f !important;
@@ -218,5 +223,10 @@ carl-blockquote {
   font-family: "Copperplate", fantasy;
 }
 
+.scaled-image {
+  width: 60%; /* Ajusta el tamaño como desees, por ejemplo, al 60% */
+  display: block; /* Centra la imagen horizontalmente */
+  margin: 0 auto;
+}
 
 
