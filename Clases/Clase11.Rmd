@@ -680,7 +680,6 @@ class: middle, inverse
 <br/>
 ## Desempleo
 
-### Este es el final del curso
 ]
 
 .pull-right[
