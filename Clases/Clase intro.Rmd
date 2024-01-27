@@ -4,7 +4,7 @@ subtitle: "Generalidades"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "24 Julio, 2023"
+date: "29 Enero, 2024"
 output:
   xaringan::moon_reader:
     css: 
@@ -66,7 +66,7 @@ xaringanExtra::style_share_again(
 ```
 
 class: right, middle, inverse, titular
-background-image: url(images/flower01.jpeg)
+background-image: url(images/bn.jpeg)
 background-size: contain
 background-position: -10cm 20%
 
@@ -111,7 +111,7 @@ class: inverse, middle, center
 
 ---
 class: middle, center
-background-image: url(https://media.giphy.com/media/xUPGcq6cAnpcLz0lZm/giphy.gif)
+background-image: url(https://media.giphy.com/media/xUPGGDNsLvqsBOhuU0/giphy.gif)
 background-size: cover
 ---
 class: center, middle
@@ -170,7 +170,7 @@ Siempre tengan en cuenta:
 
 --
 
-+ Siempre va a depender de uno .blue[mismo(a)]
++ Siempre va a depender de uno .hi[mismo(a)]
 
 --
 
@@ -186,7 +186,7 @@ Siempre tengan en cuenta:
 
 --
 
-.grey[Cálculo (4)], .pink[Introducción (3)], .orange[Electivas (2)]
+.grey[Cálculo (4)], .pink[Introducción (3)], .orange[Electiva (2)]
 
 --
 
@@ -194,9 +194,9 @@ Siempre tengan en cuenta:
 
 --
 
-$$\text{Notas}\,=3.2(\color{#8AA19E}{4})+4.2(\color{#e64173}{3})+4.9(\color{#FFA500}{2})=35.2$$
+$$\text{Notas}\,=3.0(\color{#8AA19E}{4})+3.5(\color{#e64173}{3})+4.9(\color{#FFA500}{2})=32.3$$
 
- $$\text{Notas}\,=\frac{Promedio}{\text{Total creditos matriculados}}= \frac{35.2}{9}=3.91$$
+ $$\text{Notas}\,=\frac{Promedio}{\text{Total creditos matriculados}}= \frac{32.3}{9}=3.6$$
 ---
 # Lo importante de la sesión
 
@@ -219,13 +219,13 @@ $$\text{Notas}\,=\frac{Promedio}{\text{Total creditos matriculados}}= \frac{24.7
 
 --
 
-| Requerimientos  | Fecha                                | Ponderador |
-| --------------- | ------------------------------------ | ---------- |
-| Parcial 1       | Hasta la semana 5 (17 de Agosto)     | 20%        |
-| Parcial 2       | Hasta la semana 9 (30 de Septiempre) | 20%        |
-| Trabajos        | Todo el semestre                     | 20%        |
-| Participación   | Todo el semestre                     | 10%        |
-| Examen final    | Registro académico                   | 30%        |
+| Requerimientos     | Fecha                                | Ponderador |
+| ------------------ | ------------------------------------ | ---------- |
+| Parcial 1          | Hasta la semana 5 (22 de febrero)    | 25%        |
+| Parcial 2          | Hasta la semana 9 (21 de marzo)      | 25%        |
+| Trabajo en clase   | Todo el semestre                     | 10%        |
+| Control.           | Todo el semestre                     | 10%        |
+| Examen final       | Registro académico                   | 30%        |
 ---
 # Advertencias legales:
 
