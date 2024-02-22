@@ -373,12 +373,12 @@ $$4\; \text{horas} + 3 \;\leq 0\; \text{horas}$$
 --
 
 > Restamos ahora de ambos lados 0 horas y vamos a ver que:
-$$4\; \text{horas} \;\geq \; 3$$
+$$4\; \text{horas} \;\leq \; -3$$
 
 --
 
 > Dividimos entre 4 ambos lados para mirar lo siguiente:
-$$1\; \text{hora} \;\geq \; 0.75\; \text{puntos de nota}$$
+$$1\; \text{hora} \;\leq \; -0.75\; \text{puntos de nota}$$
 
 --
 
