@@ -4,7 +4,7 @@ subtitle: "Problema <br>Económico"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "10 de agosto, 2023"
+date: "12 de Marzo, 2024"
 output:
   xaringan::moon_reader:
     css: 
@@ -66,7 +66,7 @@ xaringanExtra::style_share_again(
 ```
 
 class: right, middle, inverse, titular
-background-image: url(images/Un2.jpeg)
+background-image: url(images/Un1.jpeg)
 background-size: contain
 background-position: -10cm 20%
 
