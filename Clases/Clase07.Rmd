@@ -535,13 +535,13 @@ text_tbl <- data.frame(
     "Un agricultor siembra y cultiva papa la vende en 45000",
     "Un comerciante/intermediario la lava y la corta y la vende en 65000", 
     "Un empacador plastifica y recorta la papa y la vende en 75000",
-    "Un puesto de comidas vende 10 unidades en 20000 al consumidor final",
+    "Un puesto de comidas vende 10 unidades en 20000 al consumidor final 200 mil",
     "Precio final $200.000"
   ),
   'Valor Agregado' = c("45000",
                      "20000",
                      "10000",
-                     "135000",
+                     "125000",
                      "$200000")
 )
 
