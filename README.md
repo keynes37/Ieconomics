@@ -1,6 +1,6 @@
 # Ieconomics
 
-Acá las clases del semestre en curso (actual 2.15) foe cpi
+Acá las clases del semestre en curso (actual july20) foe cpi
 
 Semana 1. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase-intro.html#1)
 
