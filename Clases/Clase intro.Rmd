@@ -221,8 +221,8 @@ $$\text{Notas}\,=\frac{Promedio}{\text{Total creditos matriculados}}= \frac{24.7
 
 | Requerimientos     | Fecha                                | Ponderador |
 | ------------------ | ------------------------------------ | ---------- |
-| Parcial 1          | Hasta la semana 5 (22 de febrero)    | 25%        |
-| Parcial 2          | Hasta la semana 9 (21 de marzo)      | 25%        |
+| Parcial 1          | Hasta la semana 5 (23 de agosto)    | 25%        |
+| Parcial 2          | Hasta la semana 9 (21 de septiembre)      | 25%        |
 | Participación       | Todo el semestre                     | 10%        |
 | Controles/quiz      | Todo el semestre                     | 10%        |
 | Examen final       | Registro académico                   | 30%        |
