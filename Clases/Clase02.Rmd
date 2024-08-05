@@ -4,7 +4,7 @@ subtitle: "Método en <br>economía"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "20 de Febrero, 2024"
+date: "5 de Agosto, 2024"
 output:
   xaringan::moon_reader:
     css: 
@@ -335,7 +335,7 @@ class: inverse
 
 --
 
-> Supongamos que un estudiante universitario, Juan, tiene dos opciones para este fin de semana: ir a una fiesta con sus amigos o quedarse en casa para estudiar para un examen importante que tendrá la próxima semana. Si Juan decide ir a la fiesta, sacará 2 como nota en el examen y aparte se va a gastar $430.000. Si no asiste y se dedica a estudiar podrá sacar hasta 5 de nota y no va a gastar nada de dinero.
+> Supongamos que un estudiante universitario, Juan, tiene dos opciones para este fin de semana: ir a una fiesta con sus amigos o quedarse en casa para estudiar para un examen importante que tendrá la próxima semana. Si Juan decide ir a la fiesta, sacará 2 como nota en el examen y aparte se va a gastar $430.000. Si no asiste y se dedica a estudiar podrá sacar hasta 5 de nota y gastar nada de dinero.
 
 --
 
@@ -362,27 +362,25 @@ Debemos estar pendientes de analizar .hi-pink[todo]. Vamos a mirar las opciones:
 
 --
 
-> Elige $\Rightarrow$ estudiar, es menos costoso 
-$$4\; \text{horas} + 5\;\leq 0\; \text{horas}+ 2 $$
+> Ir a la fiesta es: $Nota \approx 2$ y se gastaría `$430.000` y no ir es $Nota \approx 5$ y no se gasta nada
 
 --
 
-> Restamos de ambos lados 2 y tenemos
-$$4\; \text{horas} + 3 \;\leq 0\; \text{horas}$$
+> Planteamos una formula como:
+$$\text{Costo}= (\text{Nota Potencial - Nota si va}) + \text{Costo Monetario} $$
 
 --
 
-> Restamos ahora de ambos lados 0 horas y vamos a ver que:
-$$4\; \text{horas} \;\leq \; -3$$
+>  Reemplazamos y calculamos
+$$\text{Costo}= (5-2) + 430.000 $$
 
 --
 
-> Dividimos entre 4 ambos lados para mirar lo siguiente:
-$$1\; \text{hora} \;\leq \; -0.75\; \text{puntos de nota}$$
+> Lo que nos da un costo de nota de 3 puntos y `$430.000`
 
 --
 
-**Juan**, no debe ir a la fiesta ya que una hora le cuesta mas de 0.75 puntos de nota en el examen.
+**Juan**, no debe ir a la fiesta, ya que esta dejando de sacar 3 puntos como nota, esto es $\frac{430000}{3}=143.000$
 
 ---
 # Método en economía
@@ -393,7 +391,7 @@ $$1\; \text{hora} \;\leq \; -0.75\; \text{puntos de nota}$$
 
 --
 
-Si va a la fiesta y saca 3.0. Cambia mucho la regla pero introduce la variable del costo de los $430.000 y desde luego se amplia el efecto. Desde luego nota y plata hace que la variable de las horas se desvanezca y desde luego haya que mirar el .hi[ratio] de 
+Observe que si va a la fiesta y saca 3.0. Cambia mucho la regla pero introduce la variable del costo de los $430.000 y desde luego se amplia el efecto. Desde luego nota y plata hace que la variable de las horas se desvanezca y desde luego haya que mirar el .hi[ratio] de 
 
 --
 
@@ -572,62 +570,6 @@ class: middle, center, inverse
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Money-2180330_1920.jpg" width="120%"
 alt="Moneygrant"/>
 ]
-
----
-class: middle, inverse
-
-# Presupuesto
-
----
-# Presupuesto
-
---
-
-.pull-left[
-
-+ Mire lo siguiente:
-
-| Combinación | Camisas | Pantalones |
-| ----------- | ------- | ---------- |
-| A           | 12      | 0          |
-| B           | 8       | 2          |
-| C           | 4       | 4          |
-| D           | 0       | 6          |
-
-]
-
---
-
-.pull-right[<img src="Images/c2g1.png" width="120%"
-alt="Presupuesto"/>]
-
---
-
-> El **presupuesto** siempre va a decirnos la cantidad de dinero ($) que podemos gastar en BIENES. 
-
----
-# Presupuesto
-
---
-
-.pull-left[+ Nuestro presupuesto puede ayudarnos con:
-
-$$P_y Y= I - P_x X$$
-Despejando
-
-$$Y= \underbrace{\frac{I}{P_y}}_{\text{Intercepto}}-\underbrace{\frac{P_xX}{P_y}}_{\text{Pendiente}}$$
-
-Si hacemos a $(Y=0)$, podríamos resolver $(X)$ y por ende obtener su resultado:
-
-$$\begin{aligned}
-P_xX+P_yY =& I \\
-P_xX+P_y(0) =& I \\
-X=& \frac{I}{P_x}
-\end{aligned}$$
-]
-
-.pull-right[<img src="Images/c2g2.png" width="200%"
-alt="Presupuesto2a"/>]
 
 ---
 # Bibliografía

@@ -1,0 +1,59 @@
+
+###### Parte 1
+---
+class: middle, inverse
+
+# Presupuesto
+
+---
+# Presupuesto
+
+--
+
+.pull-left[
+
++ Mire lo siguiente:
+
+| Combinación | Camisas | Pantalones |
+| ----------- | ------- | ---------- |
+| A           | 12      | 0          |
+| B           | 8       | 2          |
+| C           | 4       | 4          |
+| D           | 0       | 6          |
+
+]
+
+--
+
+.pull-right[<img src="Images/c2g1.png" width="120%"
+alt="Presupuesto"/>]
+
+--
+
+> El **presupuesto** siempre va a decirnos la cantidad de dinero ($) que podemos gastar en BIENES. 
+
+---
+# Presupuesto
+
+--
+
+.pull-left[+ Nuestro presupuesto puede ayudarnos con:
+
+$$P_y Y= I - P_x X$$
+Despejando
+
+$$Y= \underbrace{\frac{I}{P_y}}_{\text{Intercepto}}-\underbrace{\frac{P_xX}{P_y}}_{\text{Pendiente}}$$
+
+Si hacemos a $(Y=0)$, podríamos resolver $(X)$ y por ende obtener su resultado:
+
+$$\begin{aligned}
+P_xX+P_yY =& I \\
+P_xX+P_y(0) =& I \\
+X=& \frac{I}{P_x}
+\end{aligned}$$
+]
+
+.pull-right[<img src="Images/c2g2.png" width="200%"
+alt="Presupuesto2a"/>]
+
+%%%%%%%% Parte 3
