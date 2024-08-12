@@ -4,7 +4,7 @@ subtitle: "Problema <br>Económico"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "12 de Marzo, 2024"
+date: "2024"
 output:
   xaringan::moon_reader:
     css: 
