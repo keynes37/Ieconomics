@@ -4,7 +4,7 @@ subtitle: "Elasticidades"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "2 de Abril, 2024"
+date: "10 de septiembre, 2024"
 output:
   xaringan::moon_reader:
     css: 
