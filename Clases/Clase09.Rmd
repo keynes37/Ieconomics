@@ -4,7 +4,7 @@ subtitle: "Politica <br> Fiscal"
 session: "09"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "29 de Septiembre, 2023"
+date: "23 de Septiembre, 2024"
 output:
   xaringan::moon_reader:
     css: 
@@ -251,8 +251,8 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/03/New_Yo
 background-size: cover
 
 <font size="+6">.hi-orange[Nuestro Presupuesto]</font> <br>
-<font size="+3">350 Billones de pesos</font> <br>
-<font size="+2">.hi-orange[Aprobado por el congreso para 2023]</font> 
+<font size="+3">503 Billones de pesos</font> <br>
+<font size="+2">.hi-orange[Aprobado por el congreso para 2024]</font> 
 
 ---
 class: middle
