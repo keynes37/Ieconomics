@@ -4,7 +4,7 @@ subtitle: "Inflación"
 session: "10"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "14 de Mayo, 2024"
+date: "29 de Octubre, 2024"
 output:
   xaringan::moon_reader:
     css: 
@@ -308,7 +308,6 @@ El .hi-blue[Costo] surge de la operación de:
 df1%>%
   mutate(Costo=BienX*40+BienY*25)%>%
   mutate(IPC=(Costo/32600)*100)%>%
-  mutate(across(c('IPC'), round, 2))%>%
   rename("Año"= Periodo,
          "Precio Bien X"= BienX,
          "Precio Bien Y"= BienY) %>%
@@ -328,12 +327,11 @@ El .hi[año base] viene a ser el año 2022
 ---
 # Como se mide la inflación?
 
-```{r, cost4, echo=FALSE, message=FALSE}
+```{r, cost4, echo=FALSE, message=FALSE, warning=FALSE}
 df1%>%
   mutate(Costo=BienX*40+BienY*25)%>%
   mutate(IPC=(Costo/32600)*100)%>%
   mutate(Infla=(IPC/lag(IPC)-1)*100)%>%
-  mutate(across(c('IPC','Infla'), round, 2))%>%
   rename("Año"= Periodo,
          "Precio Bien X"= BienX,
          "Precio Bien Y"= BienY,
