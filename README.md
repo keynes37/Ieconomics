@@ -1,6 +1,6 @@
 # Ieconomics
 
-Acá las clases del semestre en curso (actual Agost week v14.5) need speed
+Acá las clases del semestre en curso (actual Agost week v16.5) need for
 
 Semana 1. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase-intro.html#1)
 
