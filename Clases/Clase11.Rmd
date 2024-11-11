@@ -4,7 +4,7 @@ subtitle: "Desempleo"
 session: "11"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "26 de octubre, 2023"
+date: "12 de noviembre, 2024"
 output:
   xaringan::moon_reader:
     css: 
@@ -247,7 +247,7 @@ background-size: contain
 
 --
 
-**¿Cómo clasificaría a las siguientes personas?**
+**¿Cómo clasificaría a las siguientes personas segun sean ocupados, desempleados o inactivos?**
 
 --
 
@@ -255,7 +255,7 @@ background-size: contain
 
 --
 
-`r fa("faucet", fill="blue")` Empleado de servicios generales a tiempo parcial.
+`r fa("faucet", fill="blue")` Persona de servicios generales a tiempo parcial.
 
 --
 
@@ -521,9 +521,9 @@ background-size: contain
 
 ```{R, graphoui, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
 Car <- c("TGP", "TO", "TD")
-A_2022 <- c(63.5, 56.7, 10.6)
-A_2023 <- c(64.4, 58.5, 9.3)
-data <- data.frame(Car, A_2022, A_2023)
+S_2023 <- c(64.2, 58.3, 9.3)
+S_2024 <- c(63.5, 57.7, 9.1)
+data <- data.frame(Car, S_2023, S_2024)
 
 data_long<- data%>%
   gather("Periodo", "Valor", -Car)
@@ -533,10 +533,10 @@ ggplot(data_long, aes(x=Car, y=Valor, fill=Periodo))+
   geom_col(position = "dodge")+
   scale_fill_manual(
     "Periodo",
-    labels = c("2022", "2023"),
+    labels = c("2023", "2024"),
     values = c("darkslategray","#f92672"))+
-  labs(x = "Indicadores", y = "Porcentaje (%)", title = "Comparación de Indicadores del Mercado Agosto 2022 vs. 2023",
-       subtitle = "DANE Agosto 2023") +
+  labs(x = "Indicadores", y = "Porcentaje (%)", title = "Comparación de Indicadores del Mercado Septiembre 2023 vs. 2024",
+       subtitle = "DANE Septiembre 2024") +
   ggthemes::theme_pander(base_size = 17) +
   theme(legend.position = "right")
 ```
