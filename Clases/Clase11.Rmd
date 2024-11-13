@@ -173,7 +173,7 @@ class: inverse, two-colors
 + .orange[PEA]: Incluye a quienes trabajan o están buscando empleo en el período de referencia. 
   + Disponibilidad de trabajo
   
-+ .orange[PEA]: Población Económicamente inactiva. 
++ .orange[PEI]: Población Económicamente inactiva. 
   + Amas de casa, pensionados, discapacitados, rentistas.
   + "No tienen interés de trabajar".
 ]
