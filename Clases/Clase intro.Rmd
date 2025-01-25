@@ -4,13 +4,14 @@ subtitle: "Generalidades"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "30 Julio, 2024"
+date: "2025"
 output:
   xaringan::moon_reader:
     css: 
       - default
       - css/mitem.css
       - css/edd.css
+      - css/columns.css
       - rladies
       - rladies-fonts
     lib_dir: libs
@@ -103,7 +104,7 @@ class: inverse, middle, center
 
 --
 
-🙂 Departamento de economía Bloque .hi[D] Oficina: .hi[2-15], días: .hi-purple[14:30] Jueves
+🙂 Departamento de economía Bloque .hi[D] Oficina: .hi[2-15], días: .hi-purple[10:30] Lunes
 
 ⚠️ Los correos (emails) ✉️ se responden por orden de .hi-purple[llegada]
 
@@ -221,8 +222,8 @@ $$\text{Notas}\,=\frac{Promedio}{\text{Total creditos matriculados}}= \frac{24.7
 
 | Requerimientos     | Fecha                                | Ponderador |
 | ------------------ | ------------------------------------ | ---------- |
-| Parcial 1          | Hasta la semana 5 (23 de agosto)    | 25%        |
-| Parcial 2          | Hasta la semana 9 (21 de septiembre)      | 25%        |
+| Parcial 1          | Hasta la semana 5                     | 25%        |
+| Parcial 2          | Hasta la semana 9                     | 25%        |
 | Participación       | Todo el semestre                     | 10%        |
 | Controles/quiz      | Todo el semestre                     | 10%        |
 | Examen final       | Registro académico                   | 30%        |
@@ -554,26 +555,22 @@ class: middle, center
 
 --
 
-> El .blue[mercado] debe entenderse como el mecanismo de asignación de bienes y servicios. Interactua con dos fuerzas conocidas como la **demanda** y la **oferta**.
-
---
-
+.pull-left[
 <img src="https://media.giphy.com/media/QxjwKJ4O6RlS6K78pC/giphy.gif" 
-width="120px" 
-alt="Mercado"
-style="float:center"/>
+width="340px"/>
+]
 
---
+.pull-right[
 
-.hi-red[El Mercado] no solamente es el lugar o sitio donde se vende/compran bienes. Es un contexto mucho mas grande.
+- El .blue[mercado] debe entenderse como el mecanismo de asignación de bienes y servicios. Interactua con dos fuerzas conocidas como la **demanda** y la **oferta**.
 
---
+- .hi-red[El Mercado] no solamente es el lugar o sitio donde se vende/compran bienes. Es un contexto mucho mas grande.
 
-En una economía de .hi-blue[mercado] los recursos se asignan entre los hogares y las empresas con *poca* o *ninguna* interferencia del gobierno.
+- En una economía de .hi-blue[mercado] los recursos se asignan entre los hogares y las empresas con *poca* o *ninguna* interferencia del gobierno.
 
---
+- La linea de interferencia del .b[gobierno] dependerá de la .ul[dependencia] e incluso poder de alguno de los agentes económicos
 
-La linea de interferencia del .b[gobierno] dependerá de la .ul[dependencia] e incluso poder de alguno de los agentes económicos
+]
 
 ---
 # El Mercado
