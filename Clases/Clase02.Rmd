@@ -4,7 +4,7 @@ subtitle: "Método en <br>economía"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "5 de Agosto, 2024"
+date: "2025"
 output:
   xaringan::moon_reader:
     css: 
