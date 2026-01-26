@@ -4,7 +4,7 @@ subtitle: "Generalidades"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "2025"
+date: "2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -224,8 +224,7 @@ $$\text{Notas}\,=\frac{Promedio}{\text{Total creditos matriculados}}= \frac{24.7
 | ------------------ | ------------------------------------ | ---------- |
 | Parcial 1          | Hasta la semana 5                     | 25%        |
 | Parcial 2          | Hasta la semana 9                     | 25%        |
-| Participación       | Todo el semestre                     | 10%        |
-| Controles/quiz      | Todo el semestre                     | 10%        |
+| Controles/Part.      | Todo el semestre                   | 20%        |
 | Examen final       | Registro académico                   | 30%        |
 ---
 # Advertencias legales:
@@ -310,43 +309,6 @@ Digamos que la Universidad tiene un número **fijo** de boletas/tickets de entra
 
 > **E.** .hi[Todo lo anterior].
 
-
----
-# Qué hacen los economistas?
-
---
-
-```{R, graph, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
-# Datos
-pop_df = 
-  data.frame(
-  lang = c("EEUU", "Alemania", "Francia", "Suiza", "España", "Italia", "U.K"),
-  n_jobs = c(35, 32, 32, 28, 25, 12, 11),
-  free = c(T, T, T, F, F, T, T)
-  )
-## Graficando
-pop_df %>% 
-  mutate(lang = lang %>% factor(ordered = T)) %>%
-  ggplot(aes(x = lang, y = n_jobs, fill = free)) +
-  geom_col() +
-  geom_hline(yintercept = 0) +
-  aes(x = reorder(lang, -n_jobs), fill = reorder(free, -free)) +
-  xlab("Países") +
-  scale_y_continuous(label = scales::comma) +
-  ylab("Porcentaje (%) de empleados") +
-  labs(
-    title = "Países que mas requieren de economistas",
-    subtitle = "Numero de trabajos postulados en Indeed.com, 2020/21"
-    ) +
-  scale_fill_manual(
-    "Grupo G7?",
-    labels = c("Si", "No"),
-    values = c("#f92672", "darkslategray")
-    ) +
-  ggthemes::theme_pander(base_size = 17) +
-  # theme_ipsum() +
-  theme(legend.position = "bottom")
-```
 ---
 # Qué hacen los economistas?
 
@@ -387,7 +349,7 @@ pop_df %>%
 
 --
 
-- Quién se beneficia de una *salario mínimo* de cop 1'500.000? Quién lo sufre?
+- Quién se beneficia de una *salario mínimo* de cop 2'000.000? Quién lo sufre?
 
 --
 
@@ -397,19 +359,6 @@ pop_df %>%
 
 - Por qué los gobiernos deben liderar el *cambio climático**?
 
----
-# Qué hacen los economistas?
-
---
-
-### Ademas tambien podran ser:
-
---
-
-<img src="Images/datascience.jpeg" width="40%"
-alt="Moreover"/>
-
-Fuente: Matt Dancho (2023)
 ---
 class: middle, center
 background-image: url(https://media.giphy.com/media/TjRPIXFA7snol4UnIY/giphy.gif)
@@ -442,7 +391,23 @@ Por ende
 
 1. Organizar un .b[sistema] que garantice la producción de bienes y servicios suficientes para su propia .hi-red[supervivencia]
 
-2. Organizar la distribución de los frutos de su .b[producción] para que puedan volver a producirse (sostenibilidad). 
+2. Organizar la distribución de los frutos de su .b[producción] para que puedan volver a producirse (sostenibilidad).
+
+---
+# Qué es la economía
+
+--
+
+Cuenta .b[historias] como:
+
+--
+
++ Un Caficultor Colombiano quien ve como su cosecha hace parte de un espresso en Paris.
+
++ Un arquitecto de Nueva York que trabajo con ingenieros de Chile para hacer un edificio en el Cairo.
+
++ Un migrante Colombiano en Polonia que envía dinero a su familia para que los hijos vayan a la escuela y puedan ademas comprar una casa mejor. 
+
 
 ---
 # Qué es la economía
