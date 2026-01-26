@@ -104,7 +104,7 @@ class: inverse, middle, center
 
 --
 
-🙂 Departamento de economía Bloque .hi[D] Oficina: .hi[2-15], días: .hi-purple[10:30] Lunes
+🙂 Departamento de economía Bloque .hi[D] Oficina: .hi[2-15], días: .hi-purple[9:30-17:00] Jueves
 
 ⚠️ Los correos (emails) ✉️ se responden por orden de .hi-purple[llegada]
 
