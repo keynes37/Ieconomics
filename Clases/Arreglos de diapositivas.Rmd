@@ -1,0 +1,161 @@
+---
+title: "Arreglos de diapositivas"
+output: html_document
+---
+
+class: center, middle
+# Fallas en el mercado... 🔥
+
+----
+
+---
+layout: true
+
+# Corrientes generales
+
+---
+
+--
+
+.pull-left[<span style="color:red"> **Versión Geográfica** </span>
+
+<img src="https://media.giphy.com/media/E7T0Zqg9JNwJ1MGZNs/giphy-downsized-large.gif" alt=" " width="400" height="400">
+
+- Jeffrey Sachs (1999)]
+
+--
+
+.pull-right[ **Versión Institucional**
+
+<img src="https://media.giphy.com/media/ZcQAwQsV5pH2m1On7K/giphy.gif" alt=" " width="400" height="400">
+
+- Daron Acemoglu & Joan Robinson (2000)]
+
+
+
+
+
+
+
+--
+
+> Acción racional
+
+--
+
+Lo racional le dice que:
+
+--
+
+Si quiere alcanzar $Y$, haga $X$.
+
+--
+
+En contraste, las <span style="color:blue">**Normas sociales**</span> no son orientadas a los resultados, si no:
+
+--
+
+- Haga $X$ o no lo haga.
+
+--
+
+Mas complejo: 
+
+--
+
+- Si usted hace $Y$ luego haga $X$ o si otros hacen $Y$ haga usted también $Y$.
+
+--
+
+Peor aun:
+
+--
+
+- Haga $X$ si "cree" que es bueno para todos los <span style="color:red">**demas**</span>
+
+---
+
+--
+
+Existen <span style="color:red"> **fallos** </span> del mercado tales como:
+
+--
+
+`r fa("info-circle")` Competencia imperfecta (Monopolios, Oligopolios).
+
+--
+
+`r fa("info-circle")` Mercado Incompleto.
+
+--
+
+`r fa("info-circle")` Asimetrías de información.
+
+--
+
+`r fa("info-circle")` Bienes públicos.
+
+--
+
+`r fa("info-circle")` Ciclos económicos.
+
+--
+
+`r fa("info-circle")` Bienes meritorios.
+
+---
+background-size: 100%
+background-image: url(https://media.giphy.com/media/shtvN1BhMN5bG/giphy.gif)
+
+???
+
+Image test. Taken from gyfty.
+
+---
+
+--
+
+Las mas comunes practicas en el  <span style="color:red"> **Congreso** </span>:
+
+--
+
+`r fa("balance-scale-left")` Crowding out (leyes ausentes presupuestales, indiscriminación en la deuda social).
+
+--
+
+`r fa("balance-scale-left")` Logrolling (cambio de favores, se cede el voto).
+
+--
+
+`r fa("balance-scale-left")` Pork Barrel (recibe recursos el congresista a favor del ejecutivo).
+
+--
+
+`r fa("balance-scale-left")` Rent Seeking (concesiones).
+
+--
+
+`r fa("balance-scale-left")` Rational Ignorance (votos de bancadas).
+
+--
+
+`r fa("balance-scale-left")` Lobby (Empresarios).
+
+--
+
+`r fa("balance-scale-left")` Capture of regulation. (Empresas privadas haciendo de Estado)
+
+--
+
+**Pregunta**:
+
+--
+
+Y que pasa con <span style="color:red"> **presidencia de la república** </span>?:
+
+--
+
+>  Se repiten muchas de las anteriores y se añade básicamente: **Corrupción**, efectos inesperados y mas asimetrías de información.
+
+
+
