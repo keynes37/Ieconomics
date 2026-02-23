@@ -4,7 +4,7 @@ subtitle: "El Estado"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "10 de septiembre, 2024"
+date: "2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -295,138 +295,316 @@ $$Variables=\begin{cases}
 `r fa("balance-scale-left")` Control público
 
 ---
-# Estado
-
---
-
-<div align="center">
-<font size="+8">435,6 Billones PGN</font>
-</div align="center">
-
---
-
-..."Repartidos por sectores, los renglones con mayor apropiación para el PGN 2024 son: .red[educación], con $60,49 billones; defensa y policía, $37,4 billones; .red[salud y protección social], $54,6 billones; trabajo, $41 billones; Hacienda, $27,7 billones; Prosperidad social, $16,1 billones." ... Fuente: DNP.
-
----
-# Estado
-
---
-
-<img src="images/Dian2023.png" width="580" />
-
----
-class: inverse, middle, center
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Congreso_Colombia.png)
+class: left, middle, inverse, titular
+background-image: url(images/congressdf.png)
 background-size: contain
+background-position: 10cm 60% 
 
-# Entender nuestra debilidad institucional
+# Gobernabilidad
+
+#### Ejercicio de autoridad a traves de 
+#### instituciones para el bien común.
 
 ---
-# Nuestra debilidad
+# Gasto Público
 
 --
 
-<img src="images/cliente.png" width="1080" />
+<img src="images/Ferg.png" width="630" />
 
+---
+# Gasto Público
+
+--
+
+```{R, graph01, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
+# Datos
+pop_df = 
+  data.frame(
+  lang = c("Colombia", "Alemania", "España", "EEUU", "Brasil"),
+  n_rate = c(43.2, 29.8, 21.5, 22.7, 38.3),
+  free = c(F, T, T, T, F)
+  )
+## Graficando
+pop_df %>% 
+  mutate(lang = lang %>% factor(ordered = T)) %>%
+  ggplot(aes(x = lang, y = n_rate, fill = free)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  aes(x = reorder(lang, -n_rate), fill = reorder(free, -free)) +
+  xlab("Países") +
+  scale_y_continuous(label = scales::comma) +
+  ylab("Porcentaje (%) del PIB") +
+  labs(
+    title = "Gasto Público",
+    subtitle = "Banco Mundial, 2024/25"
+    ) +
+  scale_fill_manual(
+    "Región Norte",
+    labels = c("Si", "No"),
+    values = c("#f92672", "darkslategray")
+    ) +
+  ggthemes::theme_pander(base_size = 17) +
+  # theme_ipsum() +
+  theme(legend.position = "bottom")
+```
+
+---
+# Gasto Público
+
+--
+
+```{R, graph02, fig.height=5, fig.width=7, message=FALSE, warning=FALSE, dev="svg", echo=F}
+# Datos
+data <- data.frame(
+  year = c(2010:2025),
+  value = c(30.35, 30.23, 29.09, 30, 31.26, 31.28, 29.9, 29.32, 34.66, 32.88, 33.56, 34.51, 35.04, 36.13, 34.18, 43.21)
+)
+
+# plot
+p <- ggplot(data, aes(x=year, y=value)) +
+  geom_line( color="darkslategray") + 
+  geom_hline(yintercept = 0) +
+  labs(
+    title = "Evolución del Gasto Público Colombiano",
+    subtitle = "Banco Mundial, 2010-2025"
+    ) +
+  xlab("Años") +
+  ylab("Gasto Público como % PIB") +
+  ggthemes::theme_pander(base_size = 17)
+  #theme_ipsum() +
+  #theme(axis.text.x=element_text(angle=60, hjust=1)) 
+p
+
+```
 ---
 class: inverse
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
+background-size: contain
 
-# Si usted pregunta a las personas...
+# Politica fiscal
 
---
+.left[<font size="+5">.hi-orange[EXPANSIVA]</font> <br>
+Gasto Publico es mayor <br>
+Reducción de los impuestos <br>
+Menos regulación]
 
-Oye.. Tu vendiste tu voto?
+.right[<font size="+5">.hi-orange[CONTRACTIVA]</font> <br>
+ Gasto Publico disminuye <br>
+ Aumento de los impuestos <br>
+ Mas regulación]
 
---
+---
+class: inverse, middle, right
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/03/New_York_City_%28New_York%2C_USA%29%2C_Empire_State_Building_--_2012_--_6436.jpg)
+background-size: cover
 
-Tu evades impuestos?
+<font size="+6">.hi-orange[Nuestro Presupuesto]</font> <br>
+<font size="+3">557 Billones de pesos</font> <br>
+<font size="+2">.hi-orange[Aprobado por el congreso para 2026]</font> 
 
---
+---
+class: middle
 
-🤬
+# De donde sale todo ese dinero?
 
---
-
-<font size="+5"> No van a decir nunca la verdad!!</font>
+----
 
 ---
 class: inverse, middle
-
-# Concepto Clave 
-
---
-
-## Deseabilidad Social
-
---
-
-![](https://media.giphy.com/media/xT9DPxTnuhLPORFpvi/giphy.gif)
-
-
----
-# Deseabilidad social
-
---
-
-<font size="+3"> Que tan avergonzado(a) me siento por decir la .blue[verdad] ya que entiendo que no es lo deseable socialmente<font size="+3">
-
---
-
-`r fa("virus", fill="red")` Y entonces que hacer?
-
---
-
-`r fa("info-circle")` Hagale la pregunta de esta manera a una persona:  ¿cuantas de estas cosas (no diga cuales)  tiene en cuenta para elegir o votar por alguien?
-
---
-
-+ Hablando con los amigos
-+ Información que escucho del candidato
-+ Venta del voto
-+ Partido del Candidato
-+ Programa de gobierno
-
----
-# Deseabilidad social
-
-<font size="+3"> Que tan avergonzado(a) me siento por decir la .blue[verdad] ya que entiendo que no es lo deseable socialmente<font size="+3">
-
-
-
-`r fa("virus", fill="red")` Y entonces que hacer?
-
-
-
-`r fa("info-circle")` Hagale la pregunta de esta manera a una persona:  ¿cuantas de estas cosas (no diga cuales)  tiene en cuenta para elegir o votar por alguien?
-
---
-
-+ Hablando con los amigos
-+ Información que escucho del candidato
-+ Partido del Candidato
-+ Programa de gobierno
-
----
-# Deseabilidad social
-
---
-
-## Respuestas
-
---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e2/Yellow_Color.jpg)
+background-size: contain
+background-position: -8.5cm 50%
 
 .pull-left[
-<font size="+2">La media del primer grupo respondió 3.5<font size="+2">
+<font size="+7">$300 Billones de pesos</font> <br>
+<font size="+3"> .hi-orange[Tributos]</font>
+]
 
-<font size="+2">La media del segundo grupo respondió .red[**3**]<font size="+2">
-
-En total, el 50% de los encuestados vendió su voto.]
+.pull-right[
+<font size="+7">$60 Billones de pesos</font> <br>
+<font size="+3"> .hi-orange[Ingresos Propios]</font>
+]
+---
+# Tributos en Colombia
 
 --
 
-.pull-right[
-<font size="+5"> CLIENTELISMO!! </font size="+5">
-![](https://media.giphy.com/media/xT5LMwkgOp36VdWNCE/giphy.gif)]
+```{R, graph03, fig.height=6, fig.width=8, message=FALSE, warning=FALSE, dev="svg", echo=F}
+# Datos
+library(tidyverse)
+library(ggthemes)
+
+tax_df <- data.frame(
+  tipo = c(
+    "Ret. renta",
+    "Ventas",
+    "Aduanas",
+    "Otros",
+    "Renta"
+  ),
+  monto = c(84.2, 53.9, 41.9, 35.9, 33.02),
+  clasificacion = c(
+    "Directo",
+    "Indirecto",
+    "Indirecto",
+    "Indirecto",
+    "Directo"
+  )
+)
+
+# Lo demas
+
+tax_df %>%
+  ggplot(aes(
+    x = reorder(tipo, -monto),
+    y = monto,
+    fill = clasificacion
+  )) +
+  geom_col(width = 0.55) +   # barras delgadas
+  geom_hline(yintercept = 0, color = "gray40") +
+  scale_y_continuous(
+    labels = scales::comma_format(decimal.mark = ",")
+  ) +
+  scale_fill_manual(
+    name = "Tipo de impuesto",
+    values = c(
+      "Directo" = "#f92672",
+      "Indirecto" = "darkslategray"
+    )
+  ) +
+  labs(
+    title = "Recaudo tributario por tipo de impuesto",
+    subtitle = "Primeros 10 meses del año",
+    x = "Fuente del recaudo",
+    y = "Billones de pesos"
+  ) +
+  ggthemes::theme_pander(base_size = 17) +
+  theme(
+    legend.position = "bottom",
+    axis.text.x = element_text(size = 13),
+    plot.title = element_text(face = "bold")
+  )
+
+
+
+```
+
+---
+# Tributos en Colombia
+
+--
+
+Impuestos Nacionales
+- Impuesto sobre la Renta
+- IVA
+- Impuesto al Patrimonio
+- GMF (4x1000)
+- Impuesto al carbono
+
+--
+
+Impuestos Departamentales
+
+- Licores
+- Cigarrillos
+- Registro
+
+--
+
+Impuestos Municipales
+
+- Industria y Comercio (ICA)
+- Predial
+- Delineación urbana
+
+---
+# Tributos en Colombia
+
+--
+
+Personas naturales
+-.hi[Sistema cedular]
+- Progresivo (tarifas marginales crecientes)
+
+----
+
+--
+
+Discusión económica:
+- ¿Es realmente progresivo?
+- Alta .hi-orange[concentración] de recaudo en pocas personas
+
+--
+
+Personas jurídicas
+- Tarifa cercana al 35%
+- Cambios frecuentes en .dark[reformas tributarias]
+
+---
+# Tributos en Colombia
+
+--
+
+.hi[Personeria Jurídica]: es el **reconocimiento legal** que el Estado le da a una organización para que exista como sujeto de derechos y obligaciones independiente de las personas que la conforman.
+
+--
+
+En términos simples:
+
+--
+
+>Es cuando la ley reconoce que una empresa, fundación o entidad “existe” jurídicamente y puede actuar por sí misma.
+
+--
+
+| Característica                | Persona Natural                                      | Persona Jurídica                                        |
+|------------------------------|-----------------------------------------------------|------------------------------------------------------------|
+| Definición                   | Individuo que ejerce derechos y obligaciones       | Entidad creada por la ley con existencia independiente     |
+| Existencia legal             | Existe por el solo hecho de nacer                  | Existe desde su constitución y registro legal              |
+| Responsabilidad patrimonial  | Responde con todo su patrimonio personal           | Responde con su propio patrimonio (según tipo societario)  |
+| Impuesto de renta            | Tarifa progresiva según ingresos                   | Tarifa corporativa fija (aprox. 35% en Colombia)           |
+| Capacidad para contratar     | Puede contratar directamente                       | La entidad contrata a través de su representante legal     |
+| Duración                     | Limitada a la vida de la persona                   | Puede tener duración indefinida                            |
+
+---
+# Tributos en Colombia
+
+--
+
+.left-column[
+## Los maneja la
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Dian_%28Colombia%29_logo.svg" width="60%" style="float:left"/>&nbsp; 
+]
+
+--
+
+.right-column[
+```{R, graph03309871, fig.height=6, fig.width=8, message=FALSE, warning=FALSE, dev="svg", echo=F}
+library(ggplot2)
+
+data <- data.frame(
+  category = c("Retención en la renta", "IVA", "Aduanas / Comercio Exterior", "Otros impuestos"),
+  count = c(35, 21.7, 17.1, 26.2)  # Porcentajes aproximados 2025
+)
+
+data$ymax <- cumsum(data$count)
+data$ymin <- c(0, head(data$ymax, n=-1))
+data$labelPosition <- (data$ymax + data$ymin)/2
+data$label <- paste0(data$category, "\n", data$count, "%")
+
+ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=2.5, fill=category)) +
+  geom_rect(color="white", size=0.5) +
+  geom_text(x=3.25, aes(y=labelPosition, label=label),
+            color="black", fontface="bold", size=3.8) +
+  scale_fill_brewer(palette="Paired") +
+  coord_polar(theta="y") +
+  xlim(c(1,4)) +
+  theme_void() +
+  theme(legend.position="none")
+```
+
+]
 
 ---
 class: inverse, middle, center
