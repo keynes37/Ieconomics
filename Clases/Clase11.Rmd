@@ -4,7 +4,7 @@ subtitle: "Desempleo"
 session: "11"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "12 de noviembre, 2024"
+date: "2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -521,9 +521,9 @@ background-size: contain
 
 ```{R, graphoui, echo = F, fig.height = 5, fig.width = 9, dev = "svg"}
 Car <- c("TGP", "TO", "TD")
-S_2023 <- c(64.2, 58.3, 9.3)
-S_2024 <- c(63.5, 57.7, 9.1)
-data <- data.frame(Car, S_2023, S_2024)
+S_2025 <- c(64.1, 56.7, 11.6)
+S_2026 <- c(63.6, 56.7, 10.9)
+data <- data.frame(Car, S_2025, S_2026)
 
 data_long<- data%>%
   gather("Periodo", "Valor", -Car)
@@ -533,10 +533,10 @@ ggplot(data_long, aes(x=Car, y=Valor, fill=Periodo))+
   geom_col(position = "dodge")+
   scale_fill_manual(
     "Periodo",
-    labels = c("2023", "2024"),
+    labels = c("2025", "2026"),
     values = c("darkslategray","#f92672"))+
-  labs(x = "Indicadores", y = "Porcentaje (%)", title = "Comparación de Indicadores del Mercado Septiembre 2023 vs. 2024",
-       subtitle = "DANE Septiembre 2024") +
+  labs(x = "Indicadores", y = "Porcentaje (%)", title = "Comparación de Indicadores de ML 2025 vs 2026",
+       subtitle = "DANE Febrero 2026") +
   ggthemes::theme_pander(base_size = 17) +
   theme(legend.position = "right")
 ```
@@ -610,7 +610,7 @@ Suponga por un momento que usted produce y vende caja de .hi[Bananos] y el preci
 data.frame(
     v1 = c(0, 1, 2, 3, 4, 5),
   v2 = c(0, 1000, 1900, 2200, 2400, 2500),
-  v3 = c("&mdash;", 1000, 900, 300, 200, 100),
+  v3 = c("--", 1000, 900, 300, 200, 100),
   v4 = c("", "", "", "", "", ""),
   v5 = c("$3000", "$3000", "$3000", "$3000", "$3000", "$3000")
 ) %>% kable(
@@ -633,8 +633,8 @@ Suponga por un momento que usted produce y vende caja de .hi[Bananos] y el preci
 data.frame(
     v1 = c(0, 1, 2, 3, 4, 5),
   v2 = c(0, 1000, 1900, 2200, 2400, 2500),
-  v3 = c("&mdash;", 1000, 900, 300, 200, 100),
-  v4 = c("&mdash;", "7000", "6300", "2100", "1400", "700"),
+  v3 = c("--", 1000, 900, 300, 200, 100),
+  v4 = c("--", "7000", "6300", "2100", "1400", "700"),
   v5 = c("$3000", "$3000", "$3000", "$3000", "$3000", "$3000")
 ) %>% kable(
   escape = F,

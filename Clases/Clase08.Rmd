@@ -4,7 +4,7 @@ subtitle: "Dinero <br> Instrumento de Intercambio"
 session: "08"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "2025"
+date: "2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -441,66 +441,83 @@ class: middle, inverse
 --
 
 .pull-left[
-```{r, echo=FALSE, out.width='80%', message=FALSE, fig.align='center', fig.cap='Piezas Circulante'}
-# Cargar librerías necesarias
+```{r, echo=FALSE, out.width='95%', message=FALSE, fig.align='center', fig.cap='Piezas Circulante'}
+
 library(ggplot2)
 library(dplyr)
+library(scales)
 
-# Crear datos de prueba
 data <- data.frame(
-  category = c("100 mil Pesos", "50 mil Pesos", "20 mil Pesos", "10 mil Pesos", "5 mil Pesos", "2 mil Pesos", "mil Pesos"),
+  category = c("100 mil", "50 mil", "20 mil", "10 mil", "5 mil", "2 mil", "1 mil"),
   count = c(326.5, 1536.9, 343.7, 236.8, 200.1, 549, 109)
 )
 
-# Calcular porcentaje y posiciones para el gráfico
 data <- data %>%
   mutate(
-    fraction = count / sum(count),           # Porcentaje
-    ymax = cumsum(fraction),                # Acumulado superior
-    ymin = c(0, head(ymax, n = -1)),        # Acumulado inferior
-    labelPosition = (ymax + ymin) / 2,      # Posición de la etiqueta
-    label = paste0(category, "\n", round(fraction * 100, 1), "%\n", count, "M")  # Etiqueta con porcentaje y valor
+    fraction = count / sum(count),
+    ymax = cumsum(fraction),
+    ymin = lag(ymax, default = 0),
+    labelPosition = (ymax + ymin) / 2,
+    label = paste0(category, "\n", percent(fraction, accuracy = 0.1),
+                   "\n", round(count,1)," M")
   )
 
-# Definir paleta de colores inspirada en los billetes colombianos
 colores_billetes <- c(
-  "100 mil Pesos" = "#1E90FF",  # Azul claro ($100,000)
-  "50 mil Pesos" = "#228B22",   # Verde oscuro ($50,000)
-  "20 mil Pesos" = "#FF4500",   # Naranja ($20,000)
-  "10 mil Pesos" = "#FFD700",   # Amarillo dorado ($10,000)
-  "5 mil Pesos" = "#8B008B",    # Morado ($5,000)
-  "2 mil Pesos" = "#00CED1",    # Turquesa ($2,000)
-  "mil Pesos" = "#A9A9A9"       # Gris (billete en desuso)
+  "100 mil" = "#2E86DE",
+  "50 mil"  = "#27AE60",
+  "20 mil"  = "#E74C3C",
+  "10 mil"  = "#F1C40F",
+  "5 mil"   = "#8E44AD",
+  "2 mil"   = "#17A589",
+  "1 mil"   = "#7F8C8D"
 )
 
-# Crear gráfico de anillo con etiquetas afuera
-ggplot(data, aes(ymax = ymax, ymin = ymin, xmax = 4, xmin = 2.5, fill = category)) +
-  geom_rect() +  # Dibujar los segmentos del anillo
+ggplot(data,
+       aes(ymax = ymax, ymin = ymin,
+           xmax = 4, xmin = 2.2,
+           fill = category)) +
+
+  geom_rect(color="white", linewidth=0.6) +
+
   geom_label(
-    aes(y = labelPosition, label = label, color = category), 
-    x = 4.5,  # Colocar etiquetas fuera del anillo
-    size = 3, 
-    fontface = "bold", 
-    fill = alpha("white", 0.7),  # Fondo blanco semitransparente
-    label.padding = unit(0.2, "lines"),  # Espaciado interno
-    label.size = 0.2,  # Borde fino
+    aes(y = labelPosition, label = label, color = category),
+    x = 4.6,
+    size = 3.5,
+    fontface = "bold",
+    fill = alpha("white", 0.85),
+    label.padding = unit(0.25, "lines"),
+    linewidth = 0.25,
     show.legend = FALSE
   ) +
-  scale_fill_manual(values = colores_billetes) +  # Paleta personalizada
-  scale_color_manual(values = colores_billetes) + # Colores para texto
-  coord_polar(theta = "y") +  # Transformar a coordenadas polares
-  xlim(c(0, 5)) +  # Ajustar límites para dejar espacio a etiquetas
+
+  scale_fill_manual(values = colores_billetes) +
+  scale_color_manual(values = colores_billetes) +
+
+  coord_polar(theta = "y") +
+  xlim(c(0, 5)) +
+
   labs(
-    title = "Distribución de Billetes en Colombia (Millones de Piezas)", 
-    subtitle = "Estimaciones basadas en datos históricos"
+    title = "Distribución de Billetes en Colombia",
+    subtitle = "Millones de piezas en circulación"
   ) +
-  theme_void() +  # Eliminar fondo y ejes
+
+  theme_void() +
+
   theme(
-    legend.position = "none",  # Sin leyenda redundante
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", margin = margin(b = 10)),
-    plot.subtitle = element_text(hjust = 0.5, size = 10, margin = margin(b = 20)),
-    plot.margin = margin(20, 20, 20, 20)  # Margen para presentación
+    plot.title = element_text(
+      hjust = 0.5,
+      size = 18,
+      face = "bold"
+    ),
+
+    plot.subtitle = element_text(
+      hjust = 0.5,
+      size = 12
+    ),
+
+    plot.margin = margin(10,30,10,30)
   )
+
 ```
 Fuente: Banrep
 ]
