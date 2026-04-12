@@ -4,7 +4,7 @@ subtitle: "Inflación"
 session: "10"
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "29 de Octubre, 2024"
+date: "13 de Abril, 2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -220,7 +220,7 @@ background-image: url(Images/infcity.jpg)
 background-size: cover
 
 # .hi[Inflacion Esperada]
-## < 6% Para 2024
+## > 6% Para 2026
 ---
 # Inflación en Colombia
 
@@ -265,7 +265,7 @@ background-size: cover
 
 ```{r, cost1, echo=FALSE, message=FALSE}
 # Datos
-Periodo<-c(2019, 2020, 2021, 2022, 2023)
+Periodo<-c(2022, 2023, 2024, 2025, 2026)
 BienX<-c(470, 475, 482, 490, 510)
 BienY<-c(510, 515, 518, 520, 530)
 df1<-data.frame(Periodo,BienX,BienY)
@@ -299,7 +299,7 @@ df1%>%
 
 El .hi-blue[Costo] surge de la operación de:
 
-<font size="+4">$$\text{Costo}_{2019}= 470 \times (40) + 510 \times (25)= 31.550 $$</font>
+<font size="+4">$$\text{Costo}_{2022}= 470 \times (40) + 510 \times (25)= 31.550 $$</font>
 
 ---
 # Como se mide la inflación?
@@ -322,7 +322,7 @@ El .hi-blue[Costo] surge de la operación de:
 
 --
 
-El .hi[año base] viene a ser el año 2022
+El .hi[año base] viene a ser el año 2025
 
 ---
 # Como se mide la inflación?
@@ -343,9 +343,9 @@ df1%>%
 
 El .hi-blue[Costo] surge de la operación de:
 
-<font size="+4">$$\text{Costo}_{2019}= 470 \times (40) + 510 \times (25)= 31.550 $$</font>
+<font size="+4">$$\text{Costo}_{2022}= 470 \times (40) + 510 \times (25)= 31.550 $$</font>
 
-El .hi[año base] viene a ser el año 2022
+El .hi[año base] viene a ser el año 2025
 
 ---
 class: inverse, middle, center
@@ -440,12 +440,12 @@ Fuente: Lora y Prada (2013)
 
 .pull-left[
 <font size="+5">.hi-orange[LASPEYRES]</font>
-<img src="Images/P4.png" width="380" />
+<img src="Images/P4.png" width="480" />
 ]
 
 .pull.right[
 <font size="+5">.hi-turquoise[PAASCHE]</font>
-<img src="Images/P3.png" width="380" />
+<img src="Images/P3.png" width="480" />
 ]
 
 ---
@@ -453,7 +453,7 @@ Fuente: Lora y Prada (2013)
 
 --
 
-<img src="Images/P2.png" width="780"/>
+<img src="Images/P2.png" width="880"/>
 <br>
 Fuente: Lora y Prada (2013)
 
