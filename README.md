@@ -1,6 +1,6 @@
 # Ieconomics
 
-Acá las clases del semestre en curso (actual March week v(5.1) need this:
+Acá las clases del semestre en curso (actual March week v(5.3) need this:
 
 Semana 1. [Introducción](https://keynes37.github.io/Ieconomics/Clases/Clase-intro.html#1)
 
