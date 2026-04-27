@@ -4,7 +4,7 @@ subtitle: "Problema <br>Económico"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "2025"
+date: "2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -24,25 +24,6 @@ output:
       beforeInit: "macros.js"
 ---
 
-```{r meta, echo=FALSE}
-library(metathis)
-meta() %>%
-  meta_general(
-    description = "Problema económico",
-    generator = "xaringan and remark.js"
-  ) %>% 
-  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
-  meta_social(
-    title = "Métodos en Economía",
-    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
-    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
-    image_alt = "Diapositiva para introducción a la economía",
-    og_type = "website",
-    og_author = "Carlos Yanes",
-    twitter_card_type = "summary_large_image",
-    twitter_creator = "@keynes37"
-  )
-```
 
 ```{r configuracion, include = FALSE}
 library(knitr)
@@ -63,6 +44,44 @@ xaringanExtra::use_share_again()
 xaringanExtra::style_share_again(
   share_buttons = c("twitter", "linkedin", "pocket")
 )
+
+## Adicional
+
+library(ggplot2)
+
+purple   <- "#6A3D9A"
+red_pink <- "#E83E8C"
+met_slate <- "#2F4858"
+
+supply <- function(q) q
+demand <- function(q) 10 - q
+
+theme_market <- theme_classic(base_size = 18) +
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.background = element_rect(fill = "white", color = NA)
+  )
+
+market <- ggplot(data = data.frame(x = 0), aes(x = x)) +
+  scale_x_continuous(
+    limits = c(0, 10.5),
+    expand = c(0, 0),
+    breaks = seq(0, 10, 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 10.5),
+    expand = c(0, 0),
+    breaks = seq(0, 10, 1)
+  ) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = supply, color = purple, size = 1.2) +
+  stat_function(fun = demand, color = red_pink, size = 1.2) +
+  annotate("text", label = "O", x = 10, y = 9.5, color = purple, size = 8) +
+  annotate("text", label = "D", x = 10, y = 0.7, color = red_pink, size = 8)
+
 ```
 
 class: right, middle, inverse, titular
@@ -402,228 +421,319 @@ Se resume en:
 ## Para quién producir?
 
 ---
-# Problema económico
+class: center, middle, inverse
 
---
-
-<img src="Images/bn1.png" width="60%"
-alt="Producción on"/>
+# Demanda y oferta 🌿
 
 ---
-# Problema económico
-
---
-
-### Recuerde que... 🥴 cualquier decisión genera.. un sacrificio
-
---
-
-> El enfoque .black[marginalista] permite mirar ese tipo de análisis y enfoca mucho de lo que se aprende en economía.
-
---
-
-`r fa("swift", fill="red")` .slate[Frontera de posibilidad de producción] (FPP)  permite mirar  
-
----
-# Problema económico
-
---
-
-```{r datos1, include=FALSE}
-library(DiagrammeR)
-library(hrbrthemes)
-library(econocharts)
-library(plotly)
-p <- ppf(x = 4:6, # Intersections
-         main = "Frontera de posibilidad de Producción",
-         geom = "text",
-         generic = TRUE, # Generic labels
-         labels = c("A", "B", "C"), # Custom labels
-         xlab = "Motos",
-         ylab = "Carros",
-         acol = 3)      # Color of the area
-```
-
-```{r, exam1, echo=FALSE, fig.height=3}
-p$p + geom_point(data = data.frame(x = 5, y = 5), size = 5) +
-  geom_point(data = data.frame(x = 2, y = 2), size = 5) +
-  annotate("segment", x = 3.1, xend = 4.25, y = 5, yend = 5,
-           arrow = arrow(length = unit(0.5, "lines")), colour = 3, lwd = 1) +
-  annotate("segment", x = 4.25, xend = 4.25, y = 5, yend = 4,
-           arrow = arrow(length = unit(0.5, "lines")), colour = 3, lwd = 1)
-```
-
----
-# Problema económico
-
---
-
-.pull-left[
-`r fa("tag", fill="red")` Observe lo siguiente:
-
-+ Los .red[bienes] son aquellos que satisfacen las necesidades de las personas. Adquirirlos tiene un .black[precio].
-
-+ La .slate[demanda] surge de la interacción de lo que se consume con lo que cuesta/vale (precio) de ese bien.
-
-+ *Matemáticamente es:*
-
-| Precio | Demanda |
-|--------|---------|
-| $ 8    | 1       |
-| $ 5    | 3       |
-| $ 2.5  | 6       |
-| $ 1.5  | 9       |
-
-+ Note que en la medida que el precio (.red[disminuye]) las cantidades aumentan
-
-
-]
-
-.pull-right[
-```{r, demand1, echo=FALSE, message=FALSE, fig.height=6}
-demand(main = "Demanda", # Title
-       sub = "Función con el precio",   # Subtitle
-       xlab = "Cantidades",      # X-axis label
-       ylab = "Precio",      # Y-axis label
-       names = "D[1]",  # Custom name for the curve
-       geomcol = 3)     # Color of the custom name of the curve
-```
-]
-
----
-# Problema económico
-
---
-
-.pull-left[- En algunos momentos tendremos *desplazamiento* a lo largo de la **curva de la demanda**.
-
-
-- Esos .red[casos] ocurren cuando la variable .black[precio] 💰 cambia.]
-
---
-
-.pull-right[
-
-```{r, demand2, echo=FALSE, fig.height=6}
-demand(ncurves = 1,            
-       type = "convex",        
-       x = c(8, 5, 3),         
-       linecol = 4,            
-       generic = TRUE,         
-       geom = "label",        
-       geomfill = "lightblue",
-       main = "Curva de demanda")
-```
-
-]
-
----
-# Problema económico
+# Demanda y oferta
 
 --
 
 .pull-left[
 
-- En otros momentos tendremos *desplazamiento* hacia $(\uparrow)$ o hacia $(\downarrow)$ en el mapa de curvas.
-
-
-- Esos .red[casos] ocurren cuando otra variable distinta al .black[precio] 💰 influye en el mercado.
-
-- Este tipo de variables pueden ser *coyunturales* p.e: Una plaga, una moda, un incremento de las migraciones, etc.
-
-- Las contracciones generan un desplazamiento a la .ul[izquierda] de la demanda original.
-
-- Las expansiones en cambio generan desplazamientos a la .pink[derecha] de la demanda original]
+```{r demanda-oferta-base, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+market
+```
+]
 
 --
 
 .pull-right[
+`r fa("bell", fill="red")` La .hi-pink[demanda] muestra cuánto quieren comprar los consumidores.
 
-```{r, demand3, echo=FALSE, fig.height=6}
-p <- indifference(ncurves = 2, x = c(2, 4), linecol = 3, main = "Desplazamiento demanda", xlab = "Cantidad X", ylab = "Precio")
+`r fa("bell", fill="blue")` La .hi-blue[oferta] muestra cuánto quieren vender los productores.
 
-int <- bind_rows(curve_intersect(data.frame(x = 1:1000, y = rep(3, nrow(p$curve))), p$curve + 1))
+`r fa("bell", fill="purple")` El precio coordina ambas decisiones.
+]
+---
+# Demanda y oferta
 
-p$p + geom_segment(data = int, aes(x = 0, y = y, xend = x, yend = y), lty = "dotted")  +
-      geom_segment(data = int, aes(x = x, y = 0, xend = x, yend = y), lty = "dotted") +
-      geom_point(data = int, size = 3)
+.pull-left[
+
+```{r demanda-oferta-base-1.2, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+market + geom_point(aes(x = 5, y = 5), color = met_slate, size = 3) +
+  geom_segment(aes(x = 5, y = 0, xend = 5, yend = 5),
+               linetype = "dashed", color = met_slate, size = 1) +
+  geom_segment(aes(x = 0, y = 5, xend = 5, yend = 5),
+               linetype = "dashed", color = met_slate, size = 1)
+```
+]
+
+--
+
+.pull-right[
+`r fa("check-circle", fill="green")` La oferta y la demanda se igualan.
+
+$$Q_d = Q_s$$
+
+`r fa("shopping-basket", fill="red")` En este ejemplo:
+
+$$Q^* = 5, \quad P^* = 5$$
+
+El mercado está en .hi-pink[equilibrio].
+]
+
+---
+# Demanda y oferta
+
+.pull-left[
+```{r demanda-oferta-base-1.3, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+
+market + geom_hline(yintercept = 3, linetype = "dashed", color = met_slate, size = 1) + geom_segment(aes(x = 3, y = 0, xend = 3, yend = 3), linetype = "dashed", color = met_slate, size = 1) + geom_segment(aes(x = 7, y = 0, xend = 7, yend = 3), linetype = "dashed", color = met_slate, size = 1) + geom_point(aes(x = 3, y = 3), color = met_slate, size = 3) + geom_point(aes(x = 7, y = 3), color = met_slate, size = 3) + annotate("segment", x = 3, xend = 7, y = 3.4, yend = 3.4, arrow = arrow(ends = "both", length = unit(0.2, "cm")), color = "red", size = 1) + annotate("text", x = 5, y = 4, label = "Escasez", color = "red", size = 6)
 ```
 
 ]
 
+--
+
+.pull-right[
+`r fontawesome::fa("exclamation-circle", fill = "blue")` Si el precio está por debajo del equilibrio:
+
+$$P < P^*$$
+
+`r fa("arrow-down", fill="red")` La cantidad demandada es mayor que la ofrecida.
+
+$$Q_d > Q_s$$
+
+Hay .hi-pink[escasez].
+]
+
 ---
-# Problema económico
+# Demanda y oferta
+
+.pull-left[
+```{r excedente, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+market + geom_hline(yintercept = 7, linetype = "dashed", color = met_slate, size = 1) + geom_segment(aes(x = 3, y = 0, xend = 3, yend = 7), linetype = "dashed", color = met_slate, size = 1) + geom_segment(aes(x = 7, y = 0, xend = 7, yend = 7), linetype = "dashed", color = met_slate, size = 1) +
+  geom_point(aes(x = 3, y = 7), color = met_slate, size = 3) +
+  geom_point(aes(x = 7, y = 7), color = met_slate, size = 3) +
+  annotate("segment", x = 3, xend = 7, y = 7.4, yend = 7.4, arrow = arrow(ends = "both", length = unit(0.2, "cm")),
+           color = "blue", size = 1) +
+  annotate("text", x = 5, y = 8, label = "Exceso de oferta", color = "blue", size = 6)
+```
+]
+
+--
+
+.pull-right[
+`r fontawesome::fa("exclamation-circle", fill = "blue")` Si el precio está por encima del equilibrio:
+
+$$P > P^*$$
+
+`r fa("arrow-up", fill="blue")` La cantidad ofrecida es mayor que la demandada.
+
+$$Q_s > Q_d$$
+
+Hay .hi-blue[exceso de oferta].
+]
+
+---
+class: middle
+
+# Pregunta:
+----
+
+--
+
+## Describa una situación de la vida diaria en la que aumente la demanda de un producto. ¿Qué pudo haber causado ese cambio?
+
+---
+class: inverse, middle
+
+# Desplazamientos de la curva 🛎️
+
+---
+# Desplazamiento de la Demanda
 
 --
 
 .pull-left[
-| Precio | Oferta |
-|--------|---------|
-| $ 8    | 11       |
-| $ 5    | 7.5     |
-| $ 2.5  | 6       |
-| $ 1.5  | 1.4       |
+```{r demanda-normal, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+demanda <- function(q) 10 - q
 
-- Note que en la medida que el precio (.red[aumenta]) las cantidades *ofrecidas* aumentan.
-
-- La oferta (son las empresas) ellas desean un precio .black[mejor].
-
-- Habrá mas oferta en la medida que los precios son .black[mayores].]
-
---
-
-.pull-right[
-```{r, Supply1, echo=FALSE, message=FALSE, fig.height=6}
-supply(main = "Oferta", # Title
-       sub = "Función con el precio",   # Subtitle
-       xlab = "Cantidades",      # X-axis label
-       ylab = "Precio",      # Y-axis label
-       names = "S[1]",  # Custom name for the curve
-       geomcol = 1)     # Color of the custom name of the curve
+ggplot(data = data.frame(x = 0), aes(x = x)) + scale_x_continuous(limits = c(0, 12), expand = c(0, 0), breaks = seq(0, 12, 1)) + scale_y_continuous(limits = c(0, 12), expand = c(0, 0), breaks = seq(0, 12, 1)) + theme_market + labs(x = "Q", y = "P") + stat_function(fun = demanda, color = red_pink, size = 1.2) + annotate("text", label = "D", x = 9.8, y = 0.7, color = red_pink, size = 8)
 ```
 ]
 
+.pull-right[
+
+`r fontawesome::fa("chart-line")` Esta es una curva de demanda normal.
+
+`r fontawesome::fa("arrow-down")` Tiene pendiente negativa.
+
+`r fontawesome::fa("shopping-cart")` A mayor precio, menor cantidad demandada.
+]
+
 ---
-class: center, middle
+# Desplazamiento de la Demanda
 
-# Oferta y Demanda
+.pull-left[
+```{r demanda-normal-des, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+demanda <- function(q) 10 - q
+demanda_nueva <- function(q) 12 - q
+
+ggplot(data = data.frame(x = 0), aes(x = x)) +
+  scale_x_continuous(limits = c(0, 12), expand = c(0, 0),
+                     breaks = seq(0, 12, 1)) +
+  scale_y_continuous(limits = c(0, 12), expand = c(0, 0),
+                     breaks = seq(0, 12, 1)) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = demanda, color = red_pink, size = 1.1) +
+  stat_function(fun = demanda_nueva, color = "blue", size = 1.2) +
+  annotate("text", label = "D", x = 9.8, y = 0.7,
+           color = red_pink, size = 8) +
+  annotate("text", label = "D'", x = 11.2, y = 1.1,
+           color = "blue", size = 8) +
+  annotate("segment", x = 4, xend = 6, y = 6, yend = 6,
+           arrow = arrow(length = unit(0.25, "cm")),
+           color = "black", size = 1)
+```
+]
+
+.pull-right[
+`r fontawesome::fa("arrow-right")` La demanda se desplaza hacia la derecha.
+
+`r fontawesome::fa("plus-circle")` Esto significa que aumenta la demanda.
+
+`r fontawesome::fa("info-circle")` A cada precio, los consumidores quieren comprar más.
+]
+
+---
+# Desplazamiento de la Demanda
+
+--
+
+Los .pink[desplazamientos] ocurren sobre todo cuando una variable diferente al **PRECIO**, cambia o genera un cambio en el consumo o demanda de un bien. 
+
+--
+
+### Ingresos
+
+--
+
+En Algunas ocasiones, cuando el **INGRESO** cambia $\uparrow$ o $\downarrow$ puede generar cambios circunstanciales sobre la demanda de los bienes.
+
+--
+
+### Gustos
+
+--
+
+Los  **GUSTOS** tambien inciden en la demanda, ya que puede $\uparrow$ o $\downarrow$ y de esta manera tambien el nivel general de los precios.
+
+--
+
+### Expectativas
+
+--
+
+> Si las personas esperan que el precio suba en el futuro, compran más hoy → la demanda actual aumenta.
+
+
 
 
 ---
-# Oferta y Demanda
+class: middle, inverse
+
+# Qué ocurre con la oferta? 🙂
+
+---
+# Desplazamiento de la oferta
 
 --
 
 .pull-left[
-`r fa("shopping-cart", fill="red")` Los **mercados** deben tender a un .hi-slate[equilibrio]. Si este no esta presente, lo mas probable es que se presenten desajustes con los precios y alguno de los individuos que en el interactuan saldrá "perjudicado".
-]
---
-.pull-right[
-```{r fig.height=4, mark1, echo=FALSE}
-# datos
-supply1 <- data.frame(x = c(2, 7), y = c(2, 7))
-demand1 <- data.frame(x = c(7, 2), y = c(2, 7))
+```{r oferta-normal, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+oferta <- function(q) q
 
-p <- sdcurve(supply1,   # Custom data
-             demand1,
-             equilibrium = TRUE)
-p
+ggplot(data = data.frame(x = 0), aes(x = x)) +
+  scale_x_continuous(limits = c(0, 12), expand = c(0, 0),
+                     breaks = seq(0, 12, 1)) +
+  scale_y_continuous(limits = c(0, 12), expand = c(0, 0),
+                     breaks = seq(0, 12, 1)) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = oferta, color = purple, size = 1.2) +
+  annotate("text", label = "O", x = 10.5, y = 10.5,
+           color = purple, size = 8)
 ```
 ]
+
+.pull-right[
+`r fontawesome::fa("chart-line")` Esta es una curva de oferta normal.
+
+`r fontawesome::fa("arrow-up")`Tiene pendiente positiva.
+
+`r fontawesome::fa("industry")` A mayor precio, mayor cantidad ofrecida.
+]
+
 ---
-# Oferta y Demanda
+# Desplazamiento de la oferta
+
+.pull-left[
+```{r oferta-normal2, echo=FALSE, fig.height=5, fig.width=5, dev="svg"}
+oferta <- function(q) q
+oferta_nueva <- function(q) q - 2
+
+ggplot(data = data.frame(x = 0), aes(x = x)) +
+  scale_x_continuous(limits = c(0, 12), expand = c(0, 0),
+                     breaks = seq(0, 12, 1)) +
+  scale_y_continuous(limits = c(0, 12), expand = c(0, 0),
+                     breaks = seq(0, 12, 1)) +
+  theme_market +
+  labs(x = "Q", y = "P") +
+  stat_function(fun = oferta, color = purple, size = 1.1) +
+  stat_function(fun = oferta_nueva, color = "blue", size = 1.2) +
+  annotate("text", label = "O", x = 10.2, y = 10.2,
+           color = purple, size = 8) +
+  annotate("text", label = "O'", x = 11.2, y = 9.2,
+           color = "blue", size = 8) +
+  annotate("segment", x = 5, xend = 7, y = 5, yend = 5,
+           arrow = arrow(length = unit(0.25, "cm")),
+           color = "black", size = 1)
+```
+]
 
 --
 
-`r fa("star", fill="blue")` El .red[poder de mercado] permite que posiblemente se presenten distintas interacciones, distintas pendientes e incluso algunos desajustes del mercado.
+.pull-right[
+`r fontawesome::fa("arrow-right")` La oferta se desplaza hacia la derecha.
+
+`r fontawesome::fa("plus-circle")` Esto significa que aumenta la oferta.
+
+`r fontawesome::fa("info-circle")` A cada precio, los productores quieren vender más.
+]
+---
+# Desplazamiento de la oferta
 
 --
 
-`r fa("star", fill="blue")` Algunas .black[políticas públicas] pueden interferir y crear que se den equilibrios deseados dentro del mercado. sin embargo en algún punto y con libertad estos se darán en el punto de equilibrio.
+Los .pink[desplazamientos] ocurren sobre todo cuando una variable diferente al **PRECIO**, cambia o genera un cambio en la producción u oferta de un bien.
 
 --
 
-> El equilibrio vacia el mercado. No permite que exista sobreproducción ni tampoco sobrecalentamiento de la demanda.
+### Costos de producción
+
+--
+
+En algunas ocasiones, cuando los **COSTOS DE PRODUCCIÓN** cambian $\uparrow$ o $\downarrow$, pueden generar cambios importantes sobre la oferta de los bienes.
+
+--
+
+### Tecnología
+
+--
+
+La **TECNOLOGÍA** también incide en la oferta, ya que puede permitir producir más con los mismos recursos y desplazar la oferta hacia la derecha.
+
+--
+
+### Expectativas
+
+--
+
+> Si las empresas esperan que el precio suba en el futuro, pueden ofrecer menos hoy para vender después → la oferta actual disminuye.
 
 
 ---

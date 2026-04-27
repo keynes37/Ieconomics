@@ -1,6 +1,6 @@
 ---
 title: "Introducción a la<br>Economía"
-subtitle: "Generalidades"
+subtitle: "Generalidades de clase"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
@@ -24,26 +24,6 @@ output:
       ratio: "16:9"
       beforeInit: "macros.js"
 ---
-
-```{r meta, echo=FALSE}
-library(metathis)
-meta() %>%
-  meta_general(
-    description = "Clases de Economía (Introducción)",
-    generator = "xaringan and remark.js"
-  ) %>% 
-  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
-  meta_social(
-    title = "Introducción a la economía",
-    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
-    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
-    image_alt = "Diapositiva para introducción a la economía",
-    og_type = "website",
-    og_author = "Carlos Yanes",
-    twitter_card_type = "summary_large_image",
-    twitter_creator = "@keynes37"
-  )
-```
 
 ```{r configuracion, include = FALSE}
 library(knitr)

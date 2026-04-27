@@ -24,25 +24,6 @@ output:
       beforeInit: "macros.js"
 ---
 
-```{r meta, echo=FALSE}
-library(metathis)
-meta() %>%
-  meta_general(
-    description = "Método en Economía",
-    generator = "xaringan and remark.js"
-  ) %>% 
-  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
-  meta_social(
-    title = "Métodos en Economía",
-    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
-    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
-    image_alt = "Diapositiva para introducción a la economía",
-    og_type = "website",
-    og_author = "Carlos Yanes",
-    twitter_card_type = "summary_large_image",
-    twitter_creator = "@keynes37"
-  )
-```
 
 ```{r configuracion, include = FALSE}
 library(knitr)
