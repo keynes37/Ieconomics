@@ -4,7 +4,7 @@ subtitle: "Agentes Económicos"
 session: ""
 author: "Carlos A. Yanes Guerra"
 institute: "Universidad del Norte | Dept. de Economía"
-date: "2025"
+date: "2026"
 output:
   xaringan::moon_reader:
     css: 
@@ -23,26 +23,6 @@ output:
       ratio: "16:9"
       beforeInit: "macros.js"
 ---
-
-```{r meta, echo=FALSE}
-library(metathis)
-meta() %>%
-  meta_general(
-    description = "Problema económico",
-    generator = "xaringan and remark.js"
-  ) %>% 
-  meta_name("github-repo" = "keynes37/xaringan-rladies-xalapa") %>% 
-  meta_social(
-    title = "Métodos en Economía",
-    url = "https://spcanelon.github.io/xaringan-rladies-xalapa",
-    image = "https://github.com/spcanelon/xaringan-rladies-xalapa/blob/master/xaringan-rladies-xalapa-general.png",
-    image_alt = "Diapositiva para introducción a la economía",
-    og_type = "website",
-    og_author = "Carlos Yanes",
-    twitter_card_type = "summary_large_image",
-    twitter_creator = "@keynes37"
-  )
-```
 
 ```{r configuracion, include = FALSE}
 library(knitr)
@@ -388,7 +368,7 @@ class: center, middle, inverse
 
 --
 
-*En la parte de Umg estamos dividiendo su utilidad con respecto al precio*
+*En la parte de Umg estamos dividiendo su utilidad con respecto al precio del bien*
 
 
 ---
@@ -396,13 +376,14 @@ class: center, middle, inverse
 
 --
 
-El cuadro de decisión nos permite hallar:
+El cuadro de decisión nos permite hallar (solo unas combinaciones):
 
 --
 
 | Combinaciones                                       | Utilidad Total      |
 | --------------------------------------------------- | --------------------|
 | 5 Porciones de pizza (20+16+12+8+4)                 | 60 Útiles           |
+| 2 Pepsis(9+8) y 2 Pizzas (20+16)                    | 53 Útiles           |
 | 2 Pepsis (9+8) y 4 Pizzas (20+16+12+8)              | 73 Útiles           |
 | .hi-red[4 Pepsis (9+8+7+6) y 3 Pizzas (20+16+12) ]  | .hi-red[78 Útiles]  |
 | 6 Pepsis (9+8+7+6+5+4) y 2 Pizzas (20+16)           | 75 Útiles           |
@@ -411,7 +392,7 @@ El cuadro de decisión nos permite hallar:
 
 --
 
-La **utilidad marginal** por cada dolar/peso gastado incide en la optimización de que es lo mejor para el .hi-slayer[individuo]. La relación no puede ser la misma para otros, sin embargo, puede optimizar de acuerdo a sus .hi-pink[gustos]. Tomar **4** Pepsis y **3** Pizzas conlleva al individuo a optimizar 
+La **utilidad marginal** por cada dolar/peso gastado incide en la optimización de que es lo mejor para el .hi-slayer[individuo]. La relación no puede ser la misma para otros, sin embargo, puede optimizar de acuerdo a sus .hi-pink[gustos]. Tomar **4** Pepsis y **3** Pizzas conlleva al individuo a **optimizar** 
 
 ---
 class: center, middle, inverse
